@@ -1,0 +1,81 @@
+<h1>Manage</h1>
+<h2>Add Artist</h2>
+<form name="addArtist" method="post" action=".">
+	<input type="hidden" name="action" value="saveArtist">
+	<table>
+		<tr>
+			<th>Name:</th>
+			<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+			<th>Genre:</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Bio:</th>
+			<td><textarea name="bio"></textarea></td>
+		</tr>
+		<tr>
+			<th>Website:</th>
+			<td><input type="text" name="websiteLink"></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="submit" name="submitArtist" value="Add Artist"></td>
+		</tr>
+	</table>
+</form>
+<h2>Add Venue</h2>
+<form name="addVenue" method="post" action=".">
+	<input type="hidden" name="action" value="saveVenue">
+	<table>
+		<tr>
+			<th>Name:</th>
+			<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+			<th>Location:</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Address:</th>
+			<td><input type="text" name="address"></td>
+		</tr>
+		<tr>
+			<th>Description:</th>
+			<td><textarea name="description"></textarea></td>
+		</tr>
+		<tr>
+			<th>Website:</th>
+			<td><input type="text" name="websiteLink"></td>
+		</tr>		
+		<tr>
+			<td align="center"><input type="submit" name="submitVenue" value="Add Venue"></td>
+		</tr>
+	</table>
+</form>
+<h2>Add Genre</h2>
+<form name="addGenre" method="post" action=".">
+	<input type="hidden" name="action" value="saveGenre">
+	<table>
+		<tr>
+			<th>Name:</th>
+			<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="submit" name="submitGenre" value="Add Genre"></td>
+		</tr>		
+	</table>
+</form>
+<h2>Add Age</h2>
+<form name="addAge" method="post" action=".">
+	<input type="hidden" name="action" value="saveAge">
+	<table>
+		<tr>
+			<th>Name:</th>
+			<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="submit" name="submitAge" value="Add Age"></td>
+		</tr>		
+	</table>
+</form>
