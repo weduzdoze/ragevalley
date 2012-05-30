@@ -12,6 +12,13 @@ class ArtistDB {
 		
 		return $artistByID;
 	}
+	public static function addArtist($name,$genreID,$bio,$websiteLink){
+	$db = Database::getDB();
+	$query = "INSERT INTO artists (name,genreID,bio,websiteLink)
+			  VALUES ('$name','$genreID','$bio','$websiteLink')";
+	$artist = $db->exec($query);
+	return $artist;
+	}	
 }
 
 ?>

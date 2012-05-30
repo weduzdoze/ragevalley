@@ -24,5 +24,12 @@ class Database {
         }
         return self::$db;
     }
+	
+	public static function delete($table,$column,$id){
+		$db = Database::getDB();
+		$query = "DELETE FROM $table WHERE $column = $id ";
+		$result = $db->exec($query);
+		return $result;
+	}
 }
 ?>

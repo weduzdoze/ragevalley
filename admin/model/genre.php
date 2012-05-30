@@ -14,7 +14,7 @@ class Genre{
 		
 		foreach ($result as $row){ 
 			$genre = new Genre($row['genreID'],
-								 $row['name']);			
+							   $row['name']);			
 			$genres[] = $genre;
 		}
 		return $genres;

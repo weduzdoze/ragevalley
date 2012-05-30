@@ -29,10 +29,12 @@ class Artist{
 	
 	public function getID(){
 		return $this->artistID;
-	}	
-	
+	}		
 	public function getName(){
 		return $this->name;
+	}
+	public function getGenreID(){
+		return $this->genreID;
 	}
 	public function getBio(){
 		return $this->bio;

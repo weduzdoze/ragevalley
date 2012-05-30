@@ -12,6 +12,14 @@ class AgeDB {
 		
 		return $ageByID;
 	}
+	
+	public static function addAge($age){
+	$db = Database::getDB();
+	$query = "INSERT INTO ages (name)
+			  VALUES ('$age')";
+	$age = $db->exec($query);
+	return $age;
+	}
 }
 
 ?>

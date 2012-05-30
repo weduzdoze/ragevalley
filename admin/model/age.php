@@ -8,7 +8,7 @@ class Age{
 	   public static function getAges() {   
         $db = Database::getDB();
         $query = "SELECT * FROM ages
-				  ORDER BY name DESC";
+				  ORDER BY name ASC";
         $result = $db->query($query);
 		$ages = array();
 		

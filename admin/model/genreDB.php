@@ -12,6 +12,14 @@ class GenreDB {
 		
 		return $genreByID;
 	}
+	
+	public static function addGenre($genre){
+	$db = Database::getDB();
+	$query = "INSERT INTO genres (name)
+			  VALUES ('$genre')";
+	$genre = $db->exec($query);
+	return $genre;
+	}
 }
 
 ?>
