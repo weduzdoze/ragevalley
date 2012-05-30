@@ -1,0 +1,64 @@
+body {
+background-image:url('headerPhoto.png');
+background-color: black;
+background-repeat:no-repeat;
+background-attachment:not-fixed;
+background-position:top center;
+font-family:"helvetica";
+font-size: 18px;
+color:#6699FF;
+text-align:center;
+}
+
+p {
+font-family:"helvetica";
+font-size: 18px;
+color:#6699FF;
+text-indent:-35%; 
+text-align:center;
+position:relative;
+top:350px;
+}
+
+#header {
+text-align:center;
+position:relative;
+top:340px;
+font-family:"helvetica";
+font-size: 28px;
+}
+
+
+#footer{
+font-family:helvetica;
+color: lightblue;
+text-indent: 0%;
+font-size:12px;
+bottom:0px;
+position:relative;
+}
+
+
+
+A:link {
+text-decoration:none;
+color:blue;
+margin:14px;
+}
+
+A:active {
+margin:14px;
+text-decoration: underline; color: darkblue;
+}
+
+A:visited {
+margin:14px;
+text-decoration: underline; color: ;
+}
+
+A:hover {
+margin:14px;
+text-decoration: underline; color: darkblue;
+}
+
+
