@@ -1,0 +1,65 @@
+body{
+background-color: black;
+font-family:"helvetica";
+font-size: 18px;
+color:white;
+text-indent:-35%; 
+text-align:center;
+
+}
+
+#header{
+
+font-family:"helvetica";
+font-size: 18px;
+color:#6699FF;
+text-indent:-40%; 
+text-align:center;
+
+}
+
+
+
+#footer{
+font-family:helvetica;
+color: lightblue;
+text-indent: 0%;
+font-size:12px;
+bottom:0px;
+position:relative;
+}
+
+
+img.header{
+
+position:relative;
+left:20%;
+
+}
+
+
+a.headerLink:link {
+text-decoration:none;
+color:;
+font-size:28px;
+margin:16px;
+}
+
+a.headerLink:active {
+margin:16px;
+font-size:28px;
+text-decoration: underline; color: white;
+}
+
+a.headerLink:visited {
+margin:16px;
+font-size:28px;
+text-decoration: underline; color:lightgreen;
+}
+
+a.headerLink:hover {
+margin:16px;
+font-size:28px;
+text-decoration: underline; color: darkgreen;
+}
+
