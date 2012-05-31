@@ -57,8 +57,7 @@ else if ($action == 'loginProcess'){
 	$user = userDB::login($username,$password);
 	include('view/dsp_header.php');
 	include('view/dsp_home.php');
-	include('view/dsp_footer.php');
-	
+	include('view/dsp_footer.php');	
 }
 	
 else if ($action == 'addUser'){
@@ -186,6 +185,7 @@ else if ($action == 'saveArtist'){
 	$artistAdded = artistDB::addArtist($name,$genreID,$bio,$websiteLink);
 	header('Location: index.php?action=artists');
 }
+
 else if ($action == 'venues'){
 	$venues = Venue::getVenues();
 	$locations = Location::getLocations();
