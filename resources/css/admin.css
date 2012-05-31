@@ -1,5 +1,5 @@
 body{
-background-color: black;
+background-color: gray;
 font-family:"helvetica";
 font-size: 18px;
 color:white;
@@ -63,3 +63,20 @@ font-size:28px;
 text-decoration: underline; color: darkgreen;
 }
 
+.container {
+	width:500px;
+	margin:0 auto;
+	text-align:center;
+}
+#artistForm{
+	float:left;
+	text-align:center;
+}
+#artistList{
+	float:right;
+}
+table {
+	padding:2px;
+	margin:0 auto;
+	text-align:left;
+}
