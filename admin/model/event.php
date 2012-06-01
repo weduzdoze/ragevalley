@@ -44,7 +44,7 @@ class Event{
 	public function getAge(){
 		return $this->age;
 	}		
-	public function getImage(){
+	public function getImageFileName(){
 		return $this->imageFileName;
 	}	
 	public function getFacebook(){
