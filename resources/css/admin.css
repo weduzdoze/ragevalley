@@ -3,7 +3,7 @@ background-color: gray;
 font-family:"helvetica";
 font-size: 18px;
 color:white;
-text-indent:-35%; 
+
 text-align:center;
 
 }
@@ -12,8 +12,7 @@ text-align:center;
 
 font-family:"helvetica";
 font-size: 18px;
-color:#6699FF;
-text-indent:-40%; 
+color:#6699FF; 
 text-align:center;
 
 }
@@ -31,10 +30,8 @@ position:relative;
 
 
 img.header{
-
-position:relative;
-left:20%;
-
+margin: 0 auto;
+text-align:center;
 }
 
 
@@ -64,8 +61,12 @@ text-decoration: underline; color: darkgreen;
 }
 
 .container {
-	width:500px;
+	width:550px;
 	margin:0 auto;
+	text-align:center;
+}
+.manageNav{
+	margin: 0 auto;
 	text-align:center;
 }
 #artistForm{
@@ -73,6 +74,34 @@ text-decoration: underline; color: darkgreen;
 	text-align:center;
 }
 #artistList{
+	float:right;
+}
+#venueForm{
+	float:left;
+	text-align:center;	
+}
+#venueList{
+	float:right;
+}
+#genreForm{
+	float:left;
+	text-align:center;	
+}
+#genreList{
+	float:right;
+}
+#locationForm{
+	float:left;
+	text-align:center;	
+}
+#locationList{
+	float:right;
+}
+#ageForm{
+	float:left;
+	text-align:center;	
+}
+#ageList{
 	float:right;
 }
 table {

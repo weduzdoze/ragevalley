@@ -154,6 +154,7 @@ else if ($action == 'manage'){
 else if ($action == 'genres'){
 	$genres = Genre::getGenres();
 	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
 	include('view/dsp_genres.php');
 	include('view/dsp_footer.php');
 }
@@ -173,6 +174,7 @@ else if ($action == 'artists'){
 	$genres = Genre::getGenres();
 	$artists = Artist::getArtists();
 	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
 	include('view/dsp_artists.php');
 	include('view/dsp_footer.php');
 }	
@@ -190,6 +192,7 @@ else if ($action == 'venues'){
 	$venues = Venue::getVenues();
 	$locations = Location::getLocations();
 	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
 	include('view/dsp_venues.php');
 	include('view/dsp_footer.php');
 }
@@ -207,6 +210,7 @@ else if ($action == 'saveVenue'){
 else if ($action == 'ages'){
 	$ages = Age::getAges();
 	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
 	include('view/dsp_ages.php');
 	include('view/dsp_footer.php');
 }
@@ -220,6 +224,7 @@ else if ($action == 'saveAge'){
 else if ($action == 'locations'){
 	$locations = Location::getLocations();
 	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
 	include('view/dsp_locations.php');
 	include('view/dsp_footer.php');
 }
