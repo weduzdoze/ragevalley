@@ -9,7 +9,8 @@ class userDB {
         $result = $db->query($query);
         $row = $result->fetch();
 		if ($row){	    
-			$user = new User($row['userName'],
+			$user = new User($row['userID'],
+							 $row['userName'],
                              $row['password'],
 						     $row['firstName'],
 						     $row['lastName'],
@@ -29,7 +30,7 @@ class userDB {
 		$db = Database::getDB();
         $query = "INSERT INTO users (username,password,firstName,lastName,email)
 				  VALUES ('$username','$password','$firstname','$lastname','$email')";
-        $row_count = $db->exec($query);
+        $user = $db->exec($query);
 		return $user;
 	}
 }

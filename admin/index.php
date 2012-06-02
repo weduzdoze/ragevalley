@@ -75,6 +75,9 @@ else if ($action == 'saveUser'){
 	$user = userDB::addUser($username,$password,$firstname,$lastname,$email);
 	if ($user == 1){
 		echo 'User added!';
+		if(isset($_SESSION['isLoggedIn'])){
+		header('Location: index.php?action=accounts');
+	}
 	}
 	else {
 		echo 'Error!';
@@ -236,5 +239,12 @@ else if ($action == 'saveLocation'){
 	$country = $_POST['country'];	
 	$locationAdded = locationDB::addLocation($city,$state,$zip,$country);
 	header('Location: index.php?action=locations');
+}
+
+else if ($action == 'users'){	
+	$users = User::getUsers();
+	include('view/dsp_header.php');
+	include('view/dsp_accounts.php');
+	include('view/dsp_footer.php');	
 }
 ?>
