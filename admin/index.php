@@ -63,7 +63,7 @@ else if ($action == 'loginProcess'){
 	
 else if ($action == 'addUser'){
 	include('view/dsp_header.php');
-	include('view/dsp_register.php');
+	include('view/user/dsp_register.php');
 	include('view/dsp_footer.php');
 }	
 
@@ -105,7 +105,8 @@ else if ($action == 'deleteRow'){
 else if ($action == 'events'){
 	$events = EventDB::getEvents('name','DESC');
 	include('view/dsp_header.php');
-	include('view/dsp_events.php');
+	include('view/dsp_manageNav.php');
+	include('view/event/dsp_events.php');
 	include('view/dsp_footer.php');
 }
 
@@ -113,10 +114,10 @@ else if ($action == 'eventDetails'){
 	include('view/dsp_header.php');
 	if (isset($_GET['eid'])){
 		$event = EventDB::getEventByID($_GET['eid']);
-		include('view/dsp_eventDetails.php');
+		include('view/event/dsp_eventDetails.php');
 	}
 	else {
-		include('view/dsp_events.php');
+		include('view/event/dsp_events.php');
 	}
 	include('view/dsp_footer.php');
 }
@@ -127,7 +128,7 @@ else if ($action == 'addEvent'){
 	$genres = Genre::getGenres();
 	$ages = Age::getAges();
 	include('view/dsp_header.php');
-	include('view/dsp_addEvent.php');
+	include('view/event/dsp_addEvent.php');
 	include('view/dsp_footer.php');
 }
 
@@ -159,7 +160,7 @@ else if ($action == 'saveEvent') {
 	if ($event == 1){
 		echo 'Event added!';
 		include('view/dsp_header.php');
-		include('view/dsp_events.php');
+		include('view/event/dsp_events.php');
 		include('view/dsp_footer.php');
 	}
 	else {
@@ -175,10 +176,10 @@ else if ($action == 'editEvent'){
     include('view/dsp_header.php');
 	if (isset($_GET['eid'])){
 		$event = EventDB::getEventByID($_GET['eid']);
-		include('view/dsp_editEvent.php');
+		include('view/event/dsp_editEvent.php');
 	}
 	else {
-		include('view/dsp_events.php');
+		include('view/event/dsp_events.php');
 	}
 	include('view/dsp_footer.php');
 }
@@ -215,7 +216,7 @@ else if ($action == 'genres'){
 	$genres = Genre::getGenres();
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_genres.php');
+	include('view/genre/dsp_genres.php');
 	include('view/dsp_footer.php');
 }
 
@@ -235,7 +236,7 @@ else if ($action == 'editGenre'){
 	include('view/dsp_manageNav.php');
 	if (isset($_GET['gid'])){
 		$genre = GenreDB::getGenreByID($_GET['gid']);
-		include('view/dsp_editGenre.php');
+		include('view/genre/dsp_editGenre.php');
 	}
 	else {
 		header('Location: index.php?action=genres');
@@ -260,7 +261,7 @@ else if ($action == 'artists'){
 	$artists = Artist::getArtists();
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_artists.php');
+	include('view/artist/dsp_artists.php');
 	include('view/dsp_footer.php');
 }	
 
@@ -279,10 +280,10 @@ else if ($action == 'editArtist'){
 	if (isset($_GET['aid'])){
 		$genres = Genre::getGenres();
 		$artist = ArtistDB::getArtistByID($_GET['aid']);
-		include('view/dsp_editArtist.php');
+		include('view/artist/dsp_editArtist.php');
 	}
 	else {
-		include('view/dsp_artists.php');
+		include('view/artist/dsp_artists.php');
 	}
 	include('view/dsp_footer.php');		
 }
@@ -292,7 +293,7 @@ else if ($action == 'venues'){
 	$locations = Location::getLocations();
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_venues.php');
+	include('view/venue/dsp_venues.php');
 	include('view/dsp_footer.php');
 }
 
@@ -312,10 +313,10 @@ else if ($action == 'editVenue'){
 	if (isset($_GET['vid'])){
 		$locations = Location::getLocations();
 		$venue = VenueDB::getVenueByID($_GET['vid']);
-		include('view/dsp_editVenue.php');
+		include('view/venue/dsp_editVenue.php');
 	}
 	else {
-		include('view/dsp_venues.php');
+		include('view/venue/dsp_venues.php');
 	}
 	include('view/dsp_footer.php');	
 }
@@ -341,7 +342,7 @@ else if ($action == 'ages'){
 	$ages = Age::getAges();
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_ages.php');
+	include('view/age/dsp_ages.php');
 	include('view/dsp_footer.php');
 }
 
@@ -356,7 +357,7 @@ else if ($action == 'editAge'){
 	$age = AgeDB::getAgeByID($aid);
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_editAge.php');
+	include('view/age/dsp_editAge.php');
 	include('view/dsp_footer.php');
 }
 
@@ -376,7 +377,7 @@ else if ($action == 'locations'){
 	$locations = Location::getLocations();
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_locations.php');
+	include('view/location/dsp_locations.php');
 	include('view/dsp_footer.php');
 }
 
@@ -394,7 +395,7 @@ else if ($action == 'editLocation'){
 	$location = LocationDB::getLocationByID($lid);
 	include('view/dsp_header.php');
 	include('view/dsp_manageNav.php');
-	include('view/dsp_editLocation.php');
+	include('view/location/dsp_editLocation.php');
 	include('view/dsp_footer.php');
 }
 
@@ -417,7 +418,7 @@ else if ($action == 'updateLocation'){
 else if ($action == 'users'){	
 	$users = User::getUsers();
 	include('view/dsp_header.php');
-	include('view/dsp_accounts.php');
+	include('view/user/dsp_accounts.php');
 	include('view/dsp_footer.php');	
 }
 

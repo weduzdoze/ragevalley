@@ -5,3 +5,4 @@
 <a href="index.php?action=ages">Ages</a>
 <a href="index.php?action=locations">Locations</a>
 </div>
+<br />

@@ -28,7 +28,7 @@ class eventDB {
         $row_count = $db->exec($query);
 		return $row_count;
 	}
-	public function updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details){
+	public static function updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details){
 		$db = Database::getDB();
         $query = "UPDATE events
 				  SET name = '$name',
