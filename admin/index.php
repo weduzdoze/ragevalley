@@ -73,6 +73,7 @@ else if ($action == 'saveUser'){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
+	
 	$user = userDB::addUser($username,$password,$firstname,$lastname,$email);
 	if ($user == 1){
 		echo 'User added!';
