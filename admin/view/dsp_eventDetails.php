@@ -1,4 +1,5 @@
 <h1>Event Details</h1>
+<h2><a href="index.php?action=editEvent&eid=<?php echo $event->getID();?>">Edit</a><br />
 <?php 
 	$imageFileNameLength = strlen($event->getImageFileName());
 	if ($imageFileNameLength > 1){
