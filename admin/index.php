@@ -69,6 +69,7 @@ else if ($action == 'addUser'){
 else if ($action == 'saveUser'){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$confirm = $_POST['confirmPass'];
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
@@ -76,8 +77,11 @@ else if ($action == 'saveUser'){
 	if ($user == 1){
 		echo 'User added!';
 		if(isset($_SESSION['isLoggedIn'])){
-		header('Location: index.php?action=accounts');
-	}
+			header('Location: index.php?action=accounts');
+		}
+		else {
+			header('Location: index.php?action=login');
+		}
 	}
 	else {
 		echo 'Error!';
