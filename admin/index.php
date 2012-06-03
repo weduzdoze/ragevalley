@@ -351,6 +351,27 @@ else if ($action == 'saveAge'){
 	header('Location: index.php?action=ages');
 }	
 
+else if ($action == 'editAge'){
+	$aid = $_GET['aid'];
+	$age = AgeDB::getAgeByID($aid);
+	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
+	include('view/dsp_editAge.php');
+	include('view/dsp_footer.php');
+}
+
+else if ($action == 'updateAge'){
+	$id = $_POST['ageID'];
+	$name = $_POST['name'];	
+	
+	$age = AgeDB::updateAge($id,$name);	
+	if ($age == 1){
+		header('Location: index.php?action=ages');
+	}
+	else {
+		echo 'Error.';
+	}
+}
 else if ($action == 'locations'){
 	$locations = Location::getLocations();
 	include('view/dsp_header.php');
@@ -366,6 +387,31 @@ else if ($action == 'saveLocation'){
 	$country = $_POST['country'];	
 	$locationAdded = locationDB::addLocation($city,$state,$zip,$country);
 	header('Location: index.php?action=locations');
+}
+
+else if ($action == 'editLocation'){
+	$lid = $_GET['lid'];
+	$location = LocationDB::getLocationByID($lid);
+	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
+	include('view/dsp_editLocation.php');
+	include('view/dsp_footer.php');
+}
+
+else if ($action == 'updateLocation'){
+	$id = $_POST['locationID'];
+	$city = $_POST['city'];
+	$state = $_POST['state'];	
+	$zip = $_POST['zip'];
+	$country = $_POST['country'];
+	
+	$location = LocationDB::updateLocation($id,$city,$state,$zip,$country);	
+	if ($location == 1){
+		header('Location: index.php?action=locations');
+	}
+	else {
+		echo 'Error.';
+	}
 }
 
 else if ($action == 'users'){	

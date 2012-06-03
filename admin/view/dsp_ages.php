@@ -25,7 +25,7 @@
 	<?php
 	foreach ($ages as $row){
 			echo "<tr>";			
-			echo "<td><a href='index.php?action=editAge&gid=" . $row->getID() . "'>Edit</a></td>";
+			echo "<td><a href='index.php?action=editAge&aid=" . $row->getID() . "'>Edit</a></td>";
 			echo "<td>" . $row->getName() . "</td>";
 			echo "<td><a href='index.php?action=deleteRow&table=ages&id=" . $row->getID() . "'>Delete</a></td>";
 			echo "</tr>";			

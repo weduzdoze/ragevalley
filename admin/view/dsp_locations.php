@@ -37,7 +37,7 @@
 	<?php
 	foreach ($locations as $row){
 			echo "<tr>";			
-			echo "<td><a href='index.php?action=editLocation&gid=" . $row->getID() . "'>Edit</a></td>";
+			echo "<td><a href='index.php?action=editLocation&lid=" . $row->getID() . "'>Edit</a></td>";
 			echo "<td>" . $row->getCity() . ", " . $row->getState() . "</td>";
 			echo "<td><a href='index.php?action=deleteRow&table=locations&id=" . $row->getID() . "'>Delete</a></td>";
 			echo "</tr>";			

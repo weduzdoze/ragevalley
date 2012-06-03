@@ -21,6 +21,18 @@ class LocationDB {
 	$location = $db->exec($query);
 	return $location;
 	}	
+	
+	public static function updateLocation($id,$city,$state,$zip,$country){
+	$db = Database::getDB();
+	$query = "UPDATE locations
+			  SET city = '$city',
+				  state = '$state',
+				  zip = '$zip',
+				  country = '$country'
+			  WHERE locationID = '$id'";		  
+	$result = $db->exec($query);
+	return $result;	
+	}
 }
 
 ?>

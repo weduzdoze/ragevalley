@@ -20,6 +20,15 @@ class AgeDB {
 	$age = $db->exec($query);
 	return $age;
 	}
+	
+	public static function updateAge($id,$name){
+	$db = Database::getDB();
+	$query = "UPDATE ages
+			  SET name = '$name'
+			  WHERE ageID = '$id'";		  
+	$result = $db->exec($query);
+	return $result;	
+	}
 }
 
 ?>
