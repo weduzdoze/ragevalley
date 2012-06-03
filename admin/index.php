@@ -155,6 +155,22 @@ else if ($action == 'saveEvent') {
 	}
 }
 
+else if ($action == 'editEvent'){
+	$artists = Artist::getArtists();
+    $venues = Venue::getVenues();
+	$genres = Genre::getGenres();
+	$ages = Age::getAges();
+    include('view/dsp_header.php');
+	if (isset($_GET['eid'])){
+		$event = EventDB::getEventByID($_GET['eid']);
+		include('view/dsp_editEvent.php');
+	}
+	else {
+		include('view/dsp_eventList.php');
+	}
+	include('view/dsp_footer.php');
+}
+
 else if ($action == 'manage'){
 	loadManage();
 }
