@@ -63,9 +63,7 @@
 				else {
 					$('#registerForm').submit();
 				}
-			}
-			
-
+			}			
 		});
 	});
 </script>
