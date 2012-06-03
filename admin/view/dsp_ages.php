@@ -1,5 +1,5 @@
 <div id="ageForm">
-<h2>Add Age</h2>
+<h1>Add Age</h1>
 <form name="addAge" method="post" action=".">
 	<input type="hidden" name="action" value="saveAge">
 	<table>

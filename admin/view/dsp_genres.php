@@ -1,5 +1,5 @@
 <div id="genreForm">
-<h2>Add Genre</h2>
+<h1>Add Genre</h1>
 <form name="addGenre" method="post" action=".">
 	<input type="hidden" name="action" value="saveGenre">
 	<table>

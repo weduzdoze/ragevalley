@@ -4,7 +4,7 @@ class Artist{
 	   public function __construct($artistID,$name,$genreID,$bio,$websiteLink) {
         $this->artistID = $artistID;
         $this->name = $name;
-        $this->genreID = $genreID;
+        $this->genre = GenreDB::getGenreByID($genreID);
         $this->bio = $bio;
 		$this->websiteLink = $websiteLink;
     }
@@ -33,9 +33,7 @@ class Artist{
 	public function getName(){
 		return $this->name;
 	}
-	public function getGenreID(){
-		return $this->genreID;
-	}
+	
 	public function getBio(){
 		return $this->bio;
 	}

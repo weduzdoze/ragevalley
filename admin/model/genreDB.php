@@ -20,6 +20,15 @@ class GenreDB {
 	$genre = $db->exec($query);
 	return $genre;
 	}
+	
+	public static function updateGenre($id,$name){
+		$db = Database::getDB();
+        $query = "UPDATE genres
+				  SET name = '$name'
+				  WHERE genreID = '$id'";		  
+        $result = $db->exec($query);
+		return $result;	
+	}
 }
 
 ?>

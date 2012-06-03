@@ -1,5 +1,5 @@
 <div id="venueForm">	
-	<h2>Add Venue</h2>
+	<h1>Add Venue</h1>
 	<form name="addVenue" method="post" action=".">
 		<input type="hidden" name="action" value="saveVenue">
 		<table>
@@ -31,10 +31,8 @@
 				<th>Website:</th>
 				<td><input type="text" name="websiteLink"></td>
 			</tr>		
-			<tr>
-				<td align="center"><input type="submit" name="submitVenue" value="Add Venue"></td>
-			</tr>
 		</table>
+		<td align="center"><input type="submit" name="submitVenue" value="Add Venue">
 	</form>
 </div>
 

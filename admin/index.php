@@ -223,12 +223,37 @@ else if ($action == 'saveGenre'){
 	$genre = $_POST['genre'];	
 	$genreAdded = genreDB::addGenre($genre);
 	if ($genreAdded == 1){
-		header('Location: index.php?action=genres');
-		
+		header('Location: index.php?action=genres');		
 	}
 	else {
 		echo 'Error!';
 	}
+}
+
+else if ($action == 'editGenre'){
+	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
+	if (isset($_GET['gid'])){
+		$genre = GenreDB::getGenreByID($_GET['gid']);
+		include('view/dsp_editGenre.php');
+	}
+	else {
+		header('Location: index.php?action=genres');
+	}
+	include('view/dsp_footer.php');		
+}
+	
+else if ($action == 'updateGenre'){
+	$id = $_POST['genreID'];
+	$name = $_POST['name'];	
+	
+	$genre = GenreDB::updateGenre($id,$name);	
+	if ($genre == 1){
+		header('Location: index.php?action=genres');
+	}
+	else {
+		echo 'Error.';
+	}	
 }	
 else if ($action == 'artists'){
 	$genres = Genre::getGenres();
@@ -246,6 +271,20 @@ else if ($action == 'saveArtist'){
 	$websiteLink = $_POST['websiteLink'];
 	$artistAdded = artistDB::addArtist($name,$genreID,$bio,$websiteLink);
 	header('Location: index.php?action=artists');
+}
+
+else if ($action == 'editArtist'){
+	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
+	if (isset($_GET['aid'])){
+		$genres = Genre::getGenres();
+		$artist = ArtistDB::getArtistByID($_GET['aid']);
+		include('view/dsp_editArtist.php');
+	}
+	else {
+		include('view/dsp_artists.php');
+	}
+	include('view/dsp_footer.php');		
 }
 
 else if ($action == 'venues'){

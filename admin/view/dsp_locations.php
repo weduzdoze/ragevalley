@@ -1,5 +1,5 @@
 <div id="locationForm">	
-	<h2>Add Location</h2>
+	<h1>Add Location</h1>
 	<form name="addLocation" method="post" action=".">
 		<input type="hidden" name="action" value="saveLocation">
 		<table>
