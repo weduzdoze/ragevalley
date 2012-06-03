@@ -23,7 +23,7 @@
 	echo "<a class='headerLink' href='index.php?action=manage'>Manage</a>";
 	echo "<a class='headerLink' href='index.php?action=viewEvents'>Events</a>";
 	echo "<a class='headerLink' href='index.php?action=logout'>Logout</a>";
-	echo "<a class='headerLink' href='index.php?action=accounts'>Accounts</a>";
+	echo "<a class='headerLink' href='index.php?action=users'>Accounts</a>";
 	}
 	else{
 	echo "<a class='headerLink' href='index.php?action=login'>Login</a>";

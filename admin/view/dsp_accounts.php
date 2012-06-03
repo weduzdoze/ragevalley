@@ -6,11 +6,8 @@
   google.load("jqueryui", "1.7.2");
 </script>
 
-	<head>
-		<title></title>
-		<h2>Register</h2>
-	</head>
-
+<div id="accountForm">
+<h2>Add User</h2>
 <form name="registerForm" method="post" action="." id="registerForm">
 <input type="hidden" name="action" value="saveUser">
 <table>
@@ -41,6 +38,29 @@
 </table>
 <input type="submit" name="submitRegister" id="submitRegister"value="Register">
 </form>
+</div>
+
+<div id="userList">
+<h1>Users</h1>
+<table>
+	<tr>
+		<th>Edit:</th>
+		<th>Username:</th>
+		<th>Name:</th>	
+		<th>Delete:</th>		
+	</tr>
+	<?php
+	foreach ($users as $row){
+			echo "<tr>";			
+			echo "<td><a href='index.php?action=editAge&gid=" . $row->getID() . "'>Edit</a></td>";
+			echo "<td>" . $row->getUserName() . "</td>";
+			echo "<td>" . $row->getFirstName() . " " . $row->getLastName() . "</td>";			
+			echo "<td><a href='index.php?action=deleteRow&table=users&id=" . $row->getID() . "'>Delete</a></td>";
+			echo "</tr>";			
+		}
+	?>	
+</table>
+</div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
