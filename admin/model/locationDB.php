@@ -2,11 +2,15 @@
 class LocationDB {	
 	static function getLocationByID($id){
 		$db = Database::getDB();
-		$query = "SELECT * FROM locations WHERE venueID = $id";		  
-		$location = $db->query($query);
-		$location = $venue->fetch();
+		$query = "SELECT * FROM locations WHERE locationID = $id";		  
+		$result = $db->query($query);
+		$location = $result->fetch();
 		
-		$locationByID = new Location($location['locationID'],$location['city'],$location['state'],$location['zip'],$location['country']);
+		$locationByID = new Location($location['locationID'],
+									 $location['city'],
+									 $location['state'],
+									 $location['zip'],
+									 $location['country']);
 		
 		return $locationByID;
 	}

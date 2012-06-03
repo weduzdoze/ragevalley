@@ -1,5 +1,4 @@
 <h1>Event Details</h1>
-<h2><a href="index.php?action=editEvent&eid=<?php echo $event->getID();?>">Edit</a><br />
 <?php 
 	$imageFileNameLength = strlen($event->getImageFileName());
 	if ($imageFileNameLength > 1){
@@ -17,9 +16,13 @@
 		<td><?php echo $event->artist->getName();?></td>
 	</tr>
 	<tr>
-		<th>Date:</th>
+		<th>Start:</th>
 		<td><?php echo $event->getStart();?></td>
 	</tr>
+	<tr>
+		<th>End:</th>
+		<td><?php echo $event->getEnd();?></td>
+	</tr>	
 	<tr>
 		<th>Venue:</th>
 		<td><?php echo $event->venue->getName();?></td>
@@ -51,3 +54,4 @@
 		<td><?php echo $event->getDetails();?></td>
 	</tr>	
 </table>
+<h2><a href="index.php?action=editEvent&eid=<?php echo $event->getID();?>">Edit</a></h2>

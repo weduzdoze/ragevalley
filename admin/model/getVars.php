@@ -9,4 +9,5 @@
 	$tables['locations'] = 'locationID';
 	$tables['ages'] = 'ageID';	
 	$tables['users'] = 'userID';
+	$tables['events'] = 'eventID';
 ?>

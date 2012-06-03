@@ -27,6 +27,17 @@ class Location {
 		}
 		return $locations;
 }
+
+	static function getLocationByID($id){
+		$db = Database::getDB();
+		$query = "SELECT * FROM locations WHERE locationID = $id";		  
+		$location = $db->query($query);
+		$location = $location->fetch();
+		
+		$locationByID = new Location($location['locationID'],$location['city'],$location['state'],$location['zip'],$location['country']);
+		
+		return $genreByID;
+	}
 	
 	public function getID(){
 		return $this->locationID;

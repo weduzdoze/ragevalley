@@ -21,7 +21,7 @@
 	<?php
 	if(isset($_SESSION['isLoggedIn'])){
 	echo "<a class='headerLink' href='index.php?action=manage'>Manage</a>";
-	echo "<a class='headerLink' href='index.php?action=viewEvents'>Events</a>";
+	echo "<a class='headerLink' href='index.php?action=events'>Events</a>";
 	echo "<a class='headerLink' href='index.php?action=logout'>Logout</a>";
 	echo "<a class='headerLink' href='index.php?action=users'>Accounts</a>";
 	}

@@ -6,8 +6,12 @@ class VenueDB {
 		$venue = $db->query($query);
 		$venue = $venue->fetch();
 		
-		$venueByID = new Venue($venue['venueID'],$venue['locationID'],$venue['name'],$venue['address'],$venue['description'],$venue['websiteLink']);
-		
+		$venueByID = new Venue($venue['venueID'],
+		                       $venue['locationID'],
+							   $venue['name'],
+							   $venue['address'],
+							   $venue['description'],
+							   $venue['websiteLink']);
 		return $venueByID;
 	}
 	
@@ -17,6 +21,19 @@ class VenueDB {
 			  VALUES ('$locationID','$name','$address','$description','$websiteLink')";
 	$venue = $db->exec($query);
 	return $venue;
+	}
+	
+	public static function updateVenue($id,$name,$address,$location,$description,$websiteLink){
+		$db = Database::getDB();
+        $query = "UPDATE venues
+				  SET name = '$name',
+				      address = '$address',
+					  locationID = '$location',
+					  description = '$description',
+					  websiteLink = '$websiteLink'
+				      WHERE venueID = '$id'";		  
+        $result = $db->exec($query);
+		return $result;
 	}
 }
 

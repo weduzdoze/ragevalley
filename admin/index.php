@@ -102,10 +102,10 @@ else if ($action == 'deleteRow'){
     }
 }
 
-else if ($action == 'viewEvents'){
+else if ($action == 'events'){
 	$events = EventDB::getEvents('name','DESC');
 	include('view/dsp_header.php');
-	include('view/dsp_eventList.php');
+	include('view/dsp_events.php');
 	include('view/dsp_footer.php');
 }
 
@@ -116,7 +116,7 @@ else if ($action == 'eventDetails'){
 		include('view/dsp_eventDetails.php');
 	}
 	else {
-		include('view/dsp_eventList.php');
+		include('view/dsp_events.php');
 	}
 	include('view/dsp_footer.php');
 }
@@ -136,14 +136,25 @@ else if ($action == 'saveEvent') {
 	$artist = $_POST['artist'];
 	$venue = $_POST['venue'];
 	$genre = $_POST['genre'];
-	$start = $_POST['start'];
-	$end = $_POST['end'];
+	
+	$startDate = explode("/",substr($_POST['start'],0,7));
+	$startDate = $startDate[2] . "-" . $startDate[0] . "-" . $startDate[1];	
+	$startTime = substr($_POST['start'],8,strlen($_POST['start']));
+	$start = $startDate . " " . $startTime;
+	
+	$endDate = explode("/",substr($_POST['end'],0,7));
+	$endDate = $endDate[2] . "-" . $endDate[0] . "-" . $endDate[1];	
+	$endTime = substr($_POST['end'],8,strlen($_POST['end']));
+	$end = $endDate . " " . $endTime;
+	
+	
+	
 	$price = $_POST['price'];
 	$age = $_POST['age'];
 	$imageFileName = $_POST['imageFileName'];
 	$facebook = $_POST['facebook'];
 	$details = $_POST['details'];
-	
+
 	$event = eventDB::addEvent($name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details);
 	if ($event == 1){
 		echo 'Event added!';
@@ -167,7 +178,7 @@ else if ($action == 'editEvent'){
 		include('view/dsp_editEvent.php');
 	}
 	else {
-		include('view/dsp_eventList.php');
+		include('view/dsp_events.php');
 	}
 	include('view/dsp_footer.php');
 }
@@ -185,7 +196,7 @@ else if ($action == 'updateEvent'){
 	$imageFileName = $_POST['imageFileName'];
 	$facebook = $_POST['facebook'];
 	$details = $_POST['details'];
-	
+
 	$event = eventDB::updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details);	
 	if ($event == 1){
 		header('Location: index.php?action=eventDetails&eid=' . $id);
@@ -255,6 +266,37 @@ else if ($action == 'saveVenue'){
 	$venueAdded = venueDB::addVenue($locationID,$name,$address,$description,$websiteLink);
 	header('Location: index.php?action=venues');
 }	
+
+else if ($action == 'editVenue'){
+	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
+	if (isset($_GET['vid'])){
+		$locations = Location::getLocations();
+		$venue = VenueDB::getVenueByID($_GET['vid']);
+		include('view/dsp_editVenue.php');
+	}
+	else {
+		include('view/dsp_venues.php');
+	}
+	include('view/dsp_footer.php');	
+}
+
+else if ($action == 'updateVenue'){
+	$id = $_POST['venueID'];
+	$name = $_POST['name'];
+	$address = $_POST['address'];
+	$location = $_POST['location'];
+	$description = $_POST['description'];
+	$websiteLink = $_POST['websiteLink'];
+	
+	$venue = venueDB::updateVenue($id,$name,$address,$location,$description,$websiteLink);	
+	if ($venue == 1){
+		header('Location: index.php?action=venues');
+	}
+	else {
+		echo 'Error.';
+	}	
+}
 
 else if ($action == 'ages'){
 	$ages = Age::getAges();

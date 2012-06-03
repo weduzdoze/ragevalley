@@ -87,9 +87,8 @@
 </form>
 <script type="text/javascript">
 	$('.datetime').datetimepicker({
-		ampm: true,
-		timeFormat: 'h:mm TT',
-		dateFormat: 'm/d/y',
+		timeFormat: 'hh:mm',
+		dateFormat: 'yy-mm-dd',
 		addSliderAccess: true,
 		sliderAccessArgs: { touchonly: false }
 	});

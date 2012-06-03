@@ -1,11 +1,12 @@
 <?php 
 
 class Venue{
-	   public function __construct($venueID,$locationID,$name,$address,$websiteLink) {
-        $this->venueID = $venueID;
-        $this->locationID = $locationID;
+	   public function __construct($venueID,$locationID,$name,$address,$description,$websiteLink) {
+		$this->venueID = $venueID;
+        $this->location = LocationDB::getLocationByID($locationID);
         $this->name = $name;
         $this->address = $address;
+		$this->description = $description;
 		$this->websiteLink = $websiteLink;
     }
 	   
@@ -18,10 +19,11 @@ class Venue{
 		
 		foreach ($result as $row){ 
 			$venue = new Venue($row['venueID'],
-								 $row['locationID'],
-								 $row['name'],
-								 $row['address'],
-								 $row['websiteLink']);			
+							   $row['locationID'],
+							   $row['name'],
+							   $row['address'],
+							   $row['description'],
+							   $row['websiteLink']);			
 			$venues[] = $venue;
 		}
 		return $venues;
@@ -35,6 +37,17 @@ class Venue{
 		return $this->name;
 	}
 	
+	public function getAddress(){
+		return $this->address;
+	}
+	
+	public function getWebsiteLink(){
+		return $this->websiteLink;
+	}
+	
+	public function getDescription(){
+		return $this->description;
+	}
 
 }
 

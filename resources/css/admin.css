@@ -108,4 +108,10 @@ table {
 	padding:2px;
 	margin:0 auto;
 	text-align:left;
+	border: 1px solid black;
+	cells
+}
+td {
+	border: 1px solid black;
+	padding: 2px;
 }
