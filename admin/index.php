@@ -9,6 +9,7 @@ function loadManage(){
 	$genres = Genre::getGenres();
 	$ages = Age::getAges();
 	include('view/dsp_header.php');
+	include('view/dsp_manageNav.php');
 	include('view/dsp_manage.php');
 	include('view/dsp_footer.php');
 }
@@ -171,8 +172,32 @@ else if ($action == 'editEvent'){
 	include('view/dsp_footer.php');
 }
 
+else if ($action == 'updateEvent'){
+	$id = $_POST['eventID'];
+	$name = $_POST['name'];
+	$artist = $_POST['artist'];
+	$venue = $_POST['venue'];
+	$genre = $_POST['genre'];
+	$start = $_POST['start'];
+	$end = $_POST['end'];
+	$price = $_POST['price'];
+	$age = $_POST['age'];
+	$imageFileName = $_POST['imageFileName'];
+	$facebook = $_POST['facebook'];
+	$details = $_POST['details'];
+	
+	$event = eventDB::updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details);	
+	if ($event == 1){
+		header('Location: index.php?action=eventDetails&eid=' . $id);
+	}
+	else {
+		echo 'Error.';
+	}
+}
+
 else if ($action == 'manage'){
 	loadManage();
+	
 }
 
 else if ($action == 'genres'){
@@ -268,4 +293,7 @@ else if ($action == 'users'){
 	include('view/dsp_accounts.php');
 	include('view/dsp_footer.php');	
 }
+
+
+
 ?>

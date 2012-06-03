@@ -44,8 +44,10 @@
 	$facebookLength = strlen($event->getFacebook());
 	if ($facebookLength > 1){
 		echo "<tr><th>Facebook Event</th><td>" . $event->getFacebook() . "</td></tr>";
-		echo "<br />";
 	}
 ?>	
+	<tr>
+		<th>Details:</th>
+		<td><?php echo $event->getDetails();?></td>
+	</tr>	
 </table>
-<form name=

@@ -28,6 +28,24 @@ class eventDB {
         $row_count = $db->exec($query);
 		return $row_count;
 	}
+	public function updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details){
+		$db = Database::getDB();
+        $query = "UPDATE events
+				  SET name = '$name',
+				      artistID = '$artist',
+					  venueID = '$venue',
+					  genreID = '$genre',
+					  startDateTime = '$start',
+					  endDateTime = '$end',
+					  cost = '$price',
+					  ageID = '$age',
+					  imageFileName = '$imageFileName',
+					  facebookEventLink = '$facebook',
+					  details = '$details'
+				      WHERE eventID = '$id'";		  
+        $result = $db->exec($query);
+		return $result;
+	}
 	
 	public static function getEvents($filter,$order) {   
         $db = Database::getDB();

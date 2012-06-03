@@ -3,7 +3,8 @@
 
 <h1>Edit Event</h1>
 <form name="addEvent" method="post" action=".">
-<input type="hidden" name="action" value="saveEvent" />
+<input type="hidden" name="action" value="updateEvent" />
+<input type="hidden" name="eventID" value="<?php echo $event->getID();?>">
 <table>
 	<tr>
 		<th>Name:</th>
@@ -47,15 +48,15 @@
 	</tr>		
 	<tr>
 		<th>Start:</th>
-		<td><input type="date" name="start" class="datetime"/></td>
+		<td><input type="date" name="start" class="datetime" value="<?php echo $event->getStart();?>"/></td>
 	</tr>
 	<tr>
 		<th>End:</th>
-		<td><input type="date" name="end" class="datetime"/></td>
+		<td><input type="date" name="end" class="datetime" value="<?php echo $event->getEnd();?>"/></td>
 	</tr>
 	<tr>
 		<th>Price:</th>
-		<td><input type="number" name="price" /></td>
+		<td><input type="number" name="price" value="<?php echo $event->getPrice();?>"/></td>
 	</tr>	
 	<tr>
 		<th>Age:</th>
@@ -71,15 +72,15 @@
 	</tr>
 	<tr>
 		<th>Image:</th>
-		<td><input type="text" name="imageFileName" /></td>
+		<td><input type="text" name="imageFileName" value="<?php echo $event->getImageFileName();?>"/></td>
 	</tr>	
 	<tr>
 		<th>Facebook:</th>
-		<td><input type="text" name="facebook" /></td>
+		<td><input type="text" name="facebook" value="<?php echo $event->getFacebook();?>"/></td>
 	</tr>
 	<tr>
 		<th>Details:</th>
-		<td><textarea name="details"></textarea></td>
+		<td><textarea name="details"><?php echo $event->getDetails();?></textarea></td>
 	</tr>
 </table>
 <input type="submit" value="Save Event" />
