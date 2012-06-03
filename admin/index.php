@@ -40,7 +40,7 @@ if (isset($_POST['action'])) {
 
 if ($action == 'login') {
 	include('view/dsp_header.php');
-	include('view/dsp_login.php');
+	include('view/user/dsp_login.php');
 	include('view/dsp_footer.php');
 }
 
@@ -48,7 +48,7 @@ else if ($action == 'logout') {
 	session_unset();
 	session_destroy();
 	include('view/dsp_header.php');
-	include('view/dsp_login.php');
+	include('view/user/dsp_login.php');
 	include('view/dsp_footer.php');
 }
 
@@ -56,9 +56,7 @@ else if ($action == 'loginProcess'){
 	$username = $_POST['username']; 
 	$password = $_POST['password']; 
 	$user = userDB::login($username,$password);
-	include('view/dsp_header.php');
-	include('view/dsp_home.php');
-	include('view/dsp_footer.php');	
+	header('Location: index.php?action=events');	
 }
 	
 else if ($action == 'addUser'){
