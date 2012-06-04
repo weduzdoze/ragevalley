@@ -91,7 +91,7 @@ else if ($action == 'saveUser'){
 else if ($action == 'deleteRow'){
 	$table = $_GET['table'];
 	$id = $_GET['id'];
-	include('model/getVars.php');
+	include('../model/getVars.php');
 	foreach($tables as $key=>$value) 
     { 
 		if ($key == $table)
