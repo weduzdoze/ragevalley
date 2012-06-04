@@ -14,22 +14,25 @@ text-align:center;
 font-family:"helvetica";
 font-size: 14px;
 color:#000066;
-text-indent:-35%; 
 text-align:center;
 position:relative;
 top:350px;
 }
 
-#menu {
+#header{
 text-align:center;
-position:relative;
-top:340px;
+margin:0 auto;
+
+}
+
+.menu {
+text-align:center;
 font-family:"helvetica";
 font-size: 22px;
-
-	width: 680px;
-	margin: 0 auto;
-	background-color: #000066;
+width: 680px;
+height:30px;
+margin: 0 auto;
+background-color: #000066;
 
 
 }
@@ -68,7 +71,7 @@ text-decoration: underline; color: lightblue;
 }
 
 .container{
-	width:800px;
+	width:600px;
 	margin: 0 auto;
-	text-align:center;
+	
 }
