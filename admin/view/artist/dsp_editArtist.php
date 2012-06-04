@@ -1,6 +1,7 @@
 	<h1>Edit Artist</h1>
 	<form name="addArtist" method="post" action=".">
 		<input type="hidden" name="action" value="updateArtist">
+		<input type="hidden" name="artistID" value="<?php echo $artist->getID(); ?>">
 		<table>
 			<tr>
 				<th>Name:</th>

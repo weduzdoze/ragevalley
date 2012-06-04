@@ -286,6 +286,22 @@ else if ($action == 'editArtist'){
 	include('view/dsp_footer.php');		
 }
 
+else if ($action == 'updateArtist'){
+	$id = $_POST['artistID'];
+	$name = $_POST['name'];
+	$genreID = $_POST['artistID'];
+	$bio = $_POST['bio'];
+	$websiteLink = $_POST['websiteLink'];
+	
+	$artist = artistDB::updateArtist($id,$name,$genreID,$bio,$websiteLink);
+	if ($artist == 1){
+		header('Location: index.php?action=artists');
+	}
+	else {
+		echo 'Error.';
+	}
+}
+
 else if ($action == 'venues'){
 	$venues = Venue::getVenues();
 	$locations = Location::getLocations();

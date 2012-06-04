@@ -34,4 +34,11 @@ if ($action == 'home'){
 	include('view/dsp_footer.php');
 }
 
+else if ($action == 'events'){
+	$genres = Genre::getGenres();
+	$artists = Artist::getArtists();
+	include('view/dsp_header.php');
+	include('view/dsp_events.php');
+	include('view/dsp_footer.php');	
+}
 ?>

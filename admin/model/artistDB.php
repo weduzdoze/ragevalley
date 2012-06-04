@@ -19,6 +19,20 @@ class ArtistDB {
 	$artist = $db->exec($query);
 	return $artist;
 	}	
+	
+	public static function updateArtist($id,$name,$genreID,$bio,$websiteLink){
+			var_dump(func_get_args());
+	exit();
+		$db = Database::getDB();
+        $query = "UPDATE artists
+				  SET name = '$name',
+				      genreID = '$genreID',
+					  bio = '$bio',
+					  websiteLink = '$websiteLink'
+				      WHERE artistID = '$id'";		  
+        $result = $db->exec($query);
+		return $result;
+	}	
 }
 
 ?>

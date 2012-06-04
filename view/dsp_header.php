@@ -13,7 +13,7 @@
 	<img src="resources/images/headerPhoto.png" align="center" class="header"/>
 	<br>
 	<a href="index.php?action=home" class="headerLink">Home</a>
-	<a href="" class="headerLink">Events</a>
+	<a href="index.php?action=events" class="headerLink">Events</a>
 	<a href="" class="headerLink">About Us</a>
 	<a href="" class="headerLink">Contact Us</a>
 	<br><br>
