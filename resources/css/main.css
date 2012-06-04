@@ -42,8 +42,8 @@ font-family:helvetica;
 color: darkblue;
 text-indent: 30%;
 font-size:12px;
-bottom:8px;
-position:absolute;
+bottom:0px;
+
 }
 
 
@@ -119,13 +119,30 @@ td{
 }
 
 
+.imagee{
+border: 5px double #4E387E;
+
+
+}
 
 #eventDetailsEventName{
+	text-shadow: 0 0 21px #00FF00;
+	font-family: ravie;
+	font-size: 41px;
 
 }
+
 #eventDetailsFeaturing{
-
+	text-decoration: bold;
 }
-#eventDetailsArtist{
 
+#eventDetailsArtistName{
+	text-shadow: 0 0 15px #0000FF;
+	font-family: verdana;
+	font-size: 35px;
+}
+
+#eventDetailsArtist{
+	font-family:helvetica;
+	font-size:17px;
 }
