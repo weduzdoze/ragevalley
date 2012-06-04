@@ -97,12 +97,14 @@ class eventDB {
 	}
 	
 	public static function getEventsBySearch($search,$genre,$artist,$location,$age){
-        $db = Database::getDB();
-        $query = "SELECT * FROM events"; 
-		         if (strlen($search) > 0){ $query .= " WHERE name LIKE '%$search%'"; } 
+		$db = Database::getDB();
+        $query = "SELECT e.*,v.venueID FROM events e
+				  LEFT JOIN venues v ON e.venueID = v.venueID
+				  LEFT JOIN locations l ON v.locationID = l.locationID"; 
+		         if (strlen($search) > 0){ $query .= " WHERE e.name LIKE '%$search%'"; } 
 				 if ($genre != 0){ $query .= "AND genreID = '$genre'";}
 				 if ($artist != 0){ $query .= "AND artistID = '$artist'";}
-				 if ($location != 0){ $query .= "AND locationID = '$location'";}
+				 if ($location != 0){ $query .= "AND l.locationID = '$location'";}
 				 if ($age != 0){ $query .= "AND ageID = '$age'";} 		  
 		$result = $db->query($query);
 		$events = array();

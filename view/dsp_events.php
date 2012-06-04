@@ -51,7 +51,7 @@
 				<option name="none" value="0">--Select--</option>
 				<?php 
 					foreach ($locations as $location){ ?>
-						<option name='location' value='<?php echo $location->getID() ?>'> <?php echo $location->getCity() . ", " . $location->getState();?></option>
+						<option <?php if ($location->getID() === $_POST['location']){echo "selected";} ?>name='location' value='<?php echo $location->getID() ?>'><?php echo $location->getCity() . ", " . $location->getState();?></option>
 					<?php }
 				?>
 			</select>
@@ -63,9 +63,9 @@
 				<select name="age">
 					<option name="none" value="0">--Select--</option>
 					<?php 
-						foreach ($ages as $age){
-							echo "<option name='age' value='" . $age->getID() . "'>" . $age->getName() . "</option>" ;								
-						}
+						foreach ($ages as $age){ ?>
+							<option <?php if ($age->getID() === $_POST['age']){echo "selected";} ?>name='age' value='<?php echo $age->getID() ;?>'><?php echo $age->getName();?></option>								
+						<?php }
 					?>
 				</select>
 			</td>
