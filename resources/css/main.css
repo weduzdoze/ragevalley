@@ -7,7 +7,6 @@ background-position:top center;
 font-family:"helvetica";
 font-size: 18px;
 
-text-align:center;
 }
 
 #content {
@@ -33,7 +32,6 @@ width: 680px;
 height:30px;
 margin: 0 auto;
 background-color: #000066;
-
 
 }
 
@@ -71,7 +69,13 @@ text-decoration: underline; color: lightblue;
 }
 
 .container{
-	width:600px;
 	margin: 0 auto;
-	
+	text-align:center;
+	width:620px;
+}
+#eventSearch {
+	float:left;
+}
+td{
+	text-align:center;
 }

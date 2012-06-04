@@ -111,6 +111,10 @@ text-decoration: underline; color: lightblue;
 	text-align:center;
 	margin:0 auto;
 }
+#events {
+	width:460px;
+	margin:0 auto;
+}
 
 #artistList{
 	float:left;

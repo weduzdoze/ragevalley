@@ -1,6 +1,6 @@
 <a href="index.php?action=addEvent" >Add New Event</a>
 <h1>Events</h1>
-
+<div id="events">
 <table name="listEvents" cellspacing="1" cellpadding="1">
 	<tr>
 		<th>View</th>
@@ -26,5 +26,5 @@
 		}
 	?>
 </table>
-
+</div>
 

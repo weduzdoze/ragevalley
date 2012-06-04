@@ -9,8 +9,9 @@
 	else {
 	}
 ?>
+
 <h1>Find an Event</h1>
-<form name="eventSearch" action="." method="post">
+<form name="eventSearch" action="." method="post" id="eventSearch">
 	<input type="hidden" name="action" value="eventSearch">
 	<table name="eventSearchTable">
 		<tr>
