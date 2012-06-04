@@ -37,8 +37,27 @@ if ($action == 'home'){
 else if ($action == 'events'){
 	$genres = Genre::getGenres();
 	$artists = Artist::getArtists();
+	$locations = Location::getLocations();
+	$ages = Age::getAges();
 	include('view/dsp_header.php');
 	include('view/dsp_events.php');
 	include('view/dsp_footer.php');	
+}
+
+else if ($action == 'eventSearch'){
+	$search = $_POST['search'];
+	$genre = $_POST['genre'];
+	$artist = $_POST['artist'];
+	$location = $_POST['location'];
+	$age = $_POST['age'];
+	
+	$events = EventDB::getEventsBySearch($search,$genre,$artist,$location,$age);
+	$genres = Genre::getGenres();
+	$artists = Artist::getArtists();
+	$locations = Location::getLocations();
+	$ages = Age::getAges();	
+	include('view/dsp_header.php');
+	include('view/dsp_events.php');
+	include('view/dsp_footer.php');
 }
 ?>

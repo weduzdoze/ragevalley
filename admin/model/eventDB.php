@@ -95,5 +95,35 @@ class eventDB {
 								 );			
 		return $event;
 	}
+	
+	public static function getEventsBySearch($search,$genre,$artist,$location,$age){
+        $db = Database::getDB();
+        $query = "SELECT * FROM events"; 
+		         if (strlen($search) > 0){ $query .= " WHERE name LIKE '%$search%'"; } 
+				 if ($genre != 0){ $query .= "AND genreID = '$genre'";}
+				 if ($artist != 0){ $query .= "AND artistID = '$artist'";}
+				 if ($location != 0){ $query .= "AND locationID = '$location'";}
+				 if ($age != 0){ $query .= "AND ageID = '$age'";} 		  
+		$result = $db->query($query);
+		$events = array();
+		
+		foreach ($result as $row){ 
+			$event = new Event($row['eventID'],
+							   $row['name'],
+							   $row['artistID'],
+							   $row['venueID'],
+							   $row['genreID'],
+							   $row['startDateTime'],
+							   $row['endDateTime'],
+							   $row['cost'],
+							   $row['ageID'],
+							   $row['imageFileName'],
+							   $row['facebookEventLink'],
+							   $row['details']
+								 );			
+			$events[] = $event;
+		}
+		return $events;	
+	}
 }
 ?>	
