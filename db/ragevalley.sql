@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 01, 2012 at 09:19 PM
+-- Generation Time: Jun 04, 2012 at 02:13 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -61,17 +61,19 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `websiteLink` varchar(400) NOT NULL,
   PRIMARY KEY (`artistID`),
   UNIQUE KEY `artistID` (`artistID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `artists`
 --
 
 INSERT INTO `artists` (`artistID`, `name`, `genreID`, `bio`, `websiteLink`) VALUES
-(6, 'STS9', 0, 'None', 'http://www.sts9.com'),
+(6, 'STS9', 2, 'None', 'http://www.sts9.com'),
 (7, 'DJ Tiesto', 0, 'The master.', 'http://www.tiesto.com'),
-(8, 'Hardwell', 0, 'The original gangster.', 'http://www.hardwell.com'),
-(9, 'Underoath', 0, 'Wonderful.', 'http://www.underoath.com');
+(8, 'Hardwell', 8, 'The original gangster.', 'http://www.hardwell.com'),
+(9, 'Underoath', 9, 'Wonderful.', 'http://www.underoath.com'),
+(10, 'DJ Dannic', 0, 'The man.', 'www.google.com'),
+(11, 'Hardwell', 11, 'The original gangster.', 'http://www.hardwell.com');
 
 -- --------------------------------------------------------
 
@@ -94,16 +96,16 @@ CREATE TABLE IF NOT EXISTS `events` (
   `facebookEventLink` varchar(400) NOT NULL,
   PRIMARY KEY (`eventID`),
   UNIQUE KEY `eventID` (`eventID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `events`
 --
 
 INSERT INTO `events` (`eventID`, `venueID`, `artistID`, `startDateTime`, `endDateTime`, `name`, `cost`, `ageID`, `genreID`, `details`, `imageFileName`, `facebookEventLink`) VALUES
-(4, 1, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Danzig Legacy', 39, 1, 7, 'Danzig Legacy performing music from Danzig, Samhain & The Misfits.', '', ''),
-(8, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Test', 56, 1, 4, 'sdfsdfsdf', 'sdf', 'sdf'),
-(9, 2, 7, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Tiesto Live', 90, 5, 1, 'Tiesto is the king.', 'dfgdfg', 'sdjflksjdfkljsldkfj');
+(16, 1, 8, '2012-06-27 19:00:00', '2012-06-30 00:47:00', 'Hardwell', 89, 5, 1, 'The bangers.', '', ''),
+(17, 2, 7, '2012-06-29 12:36:00', '2012-06-29 18:32:00', 'House Party', 89, 2, 4, 'The magician.', 'tiesto.jpg', 'http://www.tiesto.com'),
+(18, 2, 9, '2012-06-29 12:36:00', '2012-06-27 14:48:00', 'Birthday Bash', 0, 2, 4, 'The bangins.', '', '');
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `country` varchar(20) NOT NULL,
   PRIMARY KEY (`locationID`),
   UNIQUE KEY `locationID` (`locationID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `locations`
@@ -155,7 +157,8 @@ CREATE TABLE IF NOT EXISTS `locations` (
 INSERT INTO `locations` (`locationID`, `city`, `state`, `zip`, `country`) VALUES
 (1, 'Philadelphia', 'PA', '19104', 'USA'),
 (3, 'Matawan', 'NJ', '07747', 'USA'),
-(4, 'Millstone', 'NJ', '87673', 'USA');
+(4, 'Millstone', 'NJ', '87673', 'USA'),
+(5, 'Los Angelos', 'CA', '46766', 'USA');
 
 -- --------------------------------------------------------
 
@@ -197,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `venues` (
   `websiteLink` varchar(400) NOT NULL,
   PRIMARY KEY (`venueID`),
   UNIQUE KEY `venueID` (`venueID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `venues`
@@ -205,7 +208,8 @@ CREATE TABLE IF NOT EXISTS `venues` (
 
 INSERT INTO `venues` (`venueID`, `locationID`, `name`, `address`, `description`, `websiteLink`) VALUES
 (1, 1, 'Electric Factory', '421 N. 7th Street', 'None', 'http://www.electricfactory.info'),
-(2, 0, 'The TLA', '337 South Street.', 'The bomb', 'www.google.com');
+(2, 4, 'The TLA', '337 South Street', 'The bomb diggity.', 'www.google.com/'),
+(3, 0, 'The Troc', '456 N. 7th Street', 'The Trocadero.', 'http://thetroc.org');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
