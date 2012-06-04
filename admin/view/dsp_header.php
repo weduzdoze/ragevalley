@@ -14,10 +14,10 @@
 ?>
 
 </head>
-<div id="header">
-	
+<div id="headerPhoto">
 	<img src="../resources/images/adminPhoto.png" align="center" class="header"/>
-	<br>
+</div>	
+	<div id="menu">
 	<?php
 	if(isset($_SESSION['isLoggedIn'])){
 	echo "<a class='headerLink' href='index.php?action=events'>Events</a>";
@@ -29,7 +29,6 @@
 	echo "<a class='headerLink' href='index.php?action=addUser'>Register</a>";
 	}
 	?>
-	<br><br>
 
 	</div>
 <div class="container">
