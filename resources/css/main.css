@@ -1,2 +1,70 @@
+body {
+background-image:url('headerPhoto.png');
+background-color: #949BFF;
+background-repeat:no-repeat;
+background-attachment:not-fixed;
+background-position:top center;
+font-family:"helvetica";
+font-size: 18px;
+
+text-align:center;
+}
+
+#content {
+font-family:"helvetica";
+font-size: 14px;
+color:#000066;
+text-indent:-35%; 
+text-align:center;
+position:relative;
+top:350px;
+}
+
+#menu {
+text-align:center;
+position:relative;
+top:340px;
+font-family:"helvetica";
+font-size: 22px;
+
+	width: 680px;
+	margin: 0 auto;
+	background-color: #000066;
+
+
+}
+
+
+#footer{
+font-family:helvetica;
+color: darkblue;
+text-indent: 0%;
+font-size:12px;
+bottom:0px;
+position:relative;
+}
+
+
+
+A:link {
+text-decoration:none;
+color:#949BFF;
+margin:21px;
+}
+
+A:active {
+margin:21px;
+text-decoration: underline; color: white;
+}
+
+A:visited {
+margin:21px;
+text-decoration: underline; color: #949BFF;
+}
+
+A:hover {
+margin:21px;
+text-decoration: underline; color: lightblue;
+}
 
 
