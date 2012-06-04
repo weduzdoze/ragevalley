@@ -76,7 +76,7 @@
 
 <?php 
 	if (isset($_POST['searchSubmit'])){ ?>
-		<table name='searchResults'>
+		<table name='searchResults' id="searchResults">
 			<tr>
 				<th>Name</th>
 				<th>Artist</th>
@@ -88,10 +88,10 @@
 				$date = new DateTime($event->getStart());
 				?>
 			<tr>
-				<td><?php echo $event->getName(); ?></a></td>
-				<td><?php echo $event->artist->getName(); ?></td>
-				<td><?php echo $date->format('m/d/y') ?></td>
-				<td><?php echo $event->venue->getName(); ?></td>
+				<td id="searchName"><?php echo $event->getName(); ?></a></td>
+				<td id="searchEvent"><?php echo $event->artist->getName(); ?></td>
+				<td id="searchDate"><?php echo $date->format('m/d/y') ?></td>
+				<td id="searchVenue"><?php echo $event->venue->getName(); ?></td>
 				<td><a id="viewEventLink" href="index.php?action=eventDetails&eid=<?php echo $event->getID(); ?>">View</a></td>
 			</tr>
 		<tr>

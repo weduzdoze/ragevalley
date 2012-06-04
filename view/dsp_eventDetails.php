@@ -1,7 +1,10 @@
+<div id="eventDetails">
+
 <div id="eventDetailsEventName"><?php echo $event->getName();?>!</div><br>
 <div id="eventDetailsFeaturing"><i>Featuring:</i></div><br>
 <div id="eventDetailsArtistName"><?php echo $event->artist->getName();?></div>
-<div id="eventDetailsArtist">
+<br />
+<div id="eventDetailsImage">
 <?php 
 	$imageFileNameLength = strlen($event->getImageFileName());
 	if ($imageFileNameLength > 1){
@@ -9,7 +12,9 @@
 		echo "<br />";
 	}
 ?>
+</div>
 
+<div id="eventDetailsArtist">
 		<span id="eventName"><b>Name: </b><?php echo $event->getName();?></span><br />
 		<span id="eventArtist"><b>Artist: </b><?php echo $event->artist->getName();?></span><br />	
 		<span id="eventStart"><b>Start: </b><?php echo $event->getStart();?></span><br />
@@ -25,4 +30,6 @@
 		<?php } ?>		
 		<span id="eventDetails"><b>Details:</b> <?php echo $event->getDetails();?></span><br />
 		
+</div>
+
 </div>

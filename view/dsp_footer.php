@@ -1,9 +1,6 @@
 <div id="footer">
-<br>
+<br/>
 Rage Valley © 2012
-
-
-
 </div>
 </body>
 </html>

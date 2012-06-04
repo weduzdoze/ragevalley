@@ -38,12 +38,13 @@ background-color: #000066;
 
 
 #footer{
-font-family:helvetica;
-color: darkblue;
-text-indent: 30%;
-font-size:12px;
-bottom:0px;
-
+    padding-top:20px;
+	width:100%;
+	height:40px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
 }
 
 
@@ -111,25 +112,28 @@ text-decoration: underline; color: lightblue;
 #eventSearch {
 	float:left;
 }
-td{
-	text-align:center;
-}
+
 #viewEventLink{
 	color:white;
 }
 
-
-.imagee{
+td{
+	text-align:center;
+}
+.image{
 border: 5px double #4E387E;
 
 
+}
+
+#eventDetails{
+	width:600px;
 }
 
 #eventDetailsEventName{
 	text-shadow: 0 0 21px #00FF00;
 	font-family: ravie;
 	font-size: 41px;
-
 }
 
 #eventDetailsFeaturing{
@@ -145,4 +149,22 @@ border: 5px double #4E387E;
 #eventDetailsArtist{
 	font-family:helvetica;
 	font-size:17px;
+	float:right;
+	text-align:left;
+}
+#eventDetailsImage{
+	float:left;
+}
+
+#searchName{
+	color:red;
+}
+#searchEvent{
+	color:blue;
+}
+#searchDate{
+	color:green;
+}
+#searchVenue{
+	color:yellow;
 }
