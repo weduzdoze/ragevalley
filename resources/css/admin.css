@@ -32,7 +32,7 @@ position:relative;
 }
 
 
-#menu {
+.menu {
 	width: 620px;
 	margin: 0 auto;
 	background-color: #000066;
@@ -43,26 +43,26 @@ position:relative;
 }
 
 
-.headerLink A:link {
+a.headerLink:link {
 text-decoration:none;
 color:#949BFF;
 font-size:23px;
 margin: 0 21px;
 }
-
-.headerLink A:active {
+ 
+a.headerLink:active {
 margin:21px;
 font-size:23px;
 text-decoration: underline; color: white;
 }
 
-.headerLink A:visited {
+a.headerLink:visited {
 margin:21px;
 font-size:23px;
 text-decoration: underline; color:#949BFF;
 }
 
-.headerLink A:hover {
+a.headerLink:hover {
 margin:22px;
 font-size:23px;
 text-decoration: underline; color: lightblue;

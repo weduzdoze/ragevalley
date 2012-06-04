@@ -17,7 +17,7 @@
 <div id="header">
 	<img src="../resources/images/adminPhoto.png" align="center" class="header"/>
 
-	<div id="menu">
+	<div class="menu">
 	<?php
 	if(isset($_SESSION['isLoggedIn'])){
 	echo "<a class='headerLink' href='index.php?action=events'>Events</a>";
