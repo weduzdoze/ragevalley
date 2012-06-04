@@ -14,7 +14,7 @@
 	<a href="index.php?action=home" class="headerLink">Home</a>
 	<a href="index.php?action=events" class="headerLink">Events</a>
 	<a href="" class="headerLink">About Us</a>
-	<a href="" class="headerLink">Contact Us</a>
+	<a href="index.php?action=contactUs" class="headerLink">Contact Us</a>
 	</div>
 </div>
 
