@@ -14,21 +14,21 @@ function loadManage(){
 	include('view/dsp_footer.php');
 }
 
-require('model/database.php');
-require('model/userDB.php');
-require('model/user.php');
-require('model/eventDB.php');
-require('model/event.php');
-require('model/artistDB.php');
-require('model/artist.php');
-require('model/venueDB.php');
-require('model/venue.php');
-require('model/genreDB.php');
-require('model/genre.php');
-require('model/ageDB.php');
-require('model/age.php');
-require('model/location.php');
-require('model/locationDB.php');
+require('../model/database.php');
+require('../model/userDB.php');
+require('../model/user.php');
+require('../model/eventDB.php');
+require('../model/event.php');
+require('../model/artistDB.php');
+require('../model/artist.php');
+require('../model/venueDB.php');
+require('../model/venue.php');
+require('../model/genreDB.php');
+require('../model/genre.php');
+require('../model/ageDB.php');
+require('../model/age.php');
+require('../model/location.php');
+require('../model/locationDB.php');
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];

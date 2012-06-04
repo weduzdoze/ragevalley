@@ -51,7 +51,7 @@
 				<option name="none" value="0">--Select--</option>
 				<?php 
 					foreach ($locations as $location){ ?>
-						<option <?php if ($location->getID() === $_POST['location']){echo "selected";} ?>name='location' value='<?php echo $location->getID() ?>'><?php echo $location->getCity() . ", " . $location->getState();?></option>
+						<option <?php if ($location->getID() === $_POST['location']){echo "selected";} ?> name='location' value='<?php echo $location->getID() ?>'><?php echo $location->getCity() . ", " . $location->getState();?></option>
 					<?php }
 				?>
 			</select>
@@ -64,7 +64,7 @@
 					<option name="none" value="0">--Select--</option>
 					<?php 
 						foreach ($ages as $age){ ?>
-							<option <?php if ($age->getID() === $_POST['age']){echo "selected";} ?>name='age' value='<?php echo $age->getID() ;?>'><?php echo $age->getName();?></option>								
+							<option <?php if ($age->getID() === $_POST['age']){echo "selected";} ?> name='age' value='<?php echo $age->getID() ;?>'><?php echo $age->getName();?></option>								
 						<?php }
 					?>
 				</select>
@@ -82,15 +82,17 @@
 				<th>Artist</th>
 				<th>Date</th>
 				<th>Venue</th>
+				<th>View</th>
 			</tr>
 			<?php foreach ($events as $event){ 
 				$date = new DateTime($event->getStart());
 				?>
 			<tr>
-				<td><?php echo $event->getName(); ?></td>
+				<td><?php echo $event->getName(); ?></a></td>
 				<td><?php echo $event->artist->getName(); ?></td>
 				<td><?php echo $date->format('m/d/y') ?></td>
 				<td><?php echo $event->venue->getName(); ?></td>
+				<td><a id="viewEventLink" href="index.php?action=eventDetails&eid=<?php echo $event->getID(); ?>">View</a></td>
 			</tr>
 		<tr>
 			

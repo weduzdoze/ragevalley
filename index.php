@@ -2,21 +2,21 @@
 
 session_start();
 
-require('admin/model/database.php');
-require('admin/model/userDB.php');
-require('admin/model/user.php');
-require('admin/model/eventDB.php');
-require('admin/model/event.php');
-require('admin/model/artistDB.php');
-require('admin/model/artist.php');
-require('admin/model/venueDB.php');
-require('admin/model/venue.php');
-require('admin/model/genreDB.php');
-require('admin/model/genre.php');
-require('admin/model/ageDB.php');
-require('admin/model/age.php');
-require('admin/model/location.php');
-require('admin/model/locationDB.php');
+require('model/database.php');
+require('model/userDB.php');
+require('model/user.php');
+require('model/eventDB.php');
+require('model/event.php');
+require('model/artistDB.php');
+require('model/artist.php');
+require('model/venueDB.php');
+require('model/venue.php');
+require('model/genreDB.php');
+require('model/genre.php');
+require('model/ageDB.php');
+require('model/age.php');
+require('model/location.php');
+require('model/locationDB.php');
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -58,6 +58,18 @@ else if ($action == 'eventSearch'){
 	$ages = Age::getAges();	
 	include('view/dsp_header.php');
 	include('view/dsp_events.php');
+	include('view/dsp_footer.php');
+}
+
+else if ($action == 'eventDetails'){
+	include('view/dsp_header.php');
+	if(isset($_GET['eid'])){
+		$event = eventDB::getEventByID($_GET['eid']);
+		include('view/dsp_eventDetails.php');
+	}
+	else {
+		include('view/dsp_events.php');
+	}	
 	include('view/dsp_footer.php');
 }
 ?>

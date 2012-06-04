@@ -1,10 +1,11 @@
-<h1>Event Details</h1>
-<h2><a href="index.php?action=editEvent&eid=<?php echo $event->getID();?>">Edit</a></h2>
+<div id="eventDetailsEventName"><h1><?php echo $event->getName();?></h1></div>
+<div id="eventDetailsFeaturing"><h2>Featuring:</h2></div>
+<div id="eventDetailsArtist"><h1><?php echo $event->artist->getName();?></h1>
 <?php 
 	$imageFileNameLength = strlen($event->getImageFileName());
 	if ($imageFileNameLength > 1){
-		echo "<img src='../images/events/" . $event->getImageFileName() . "' class=''/>";
-		echo "<br /><br />";
+		echo "<img src='images/events/" . $event->getImageFileName() . "' class=''/>";
+		echo "<br />";
 	}
 ?>
 
@@ -22,5 +23,3 @@
 			<span id="eventFacebook">Facebook: <?php echo $event->getFacebook();?></span><br />
 		<?php } ?>		
 		<span id="eventDetails">Details: <?php echo $event->getDetails();?></span><br />
-
-		
