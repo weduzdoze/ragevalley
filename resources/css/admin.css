@@ -7,15 +7,13 @@ color:#000066;
 
 }
 
-#headerPhoto{
-
-text-indent:-40%; 
+#header{
 text-align:center;
+margin:0 auto;
 
 }
 
-#content{
-text-indent:-35%; 
+#content{ 
 text-align:center;
 font-family:"helvetica";
 font-size: 14px;
@@ -26,7 +24,6 @@ font-size: 14px;
 #footer{
 font-family:helvetica;
 color: darkblue;
-text-indent: 47%;
 font-size:12px;
 bottom:0px;
 position:relative;
@@ -35,15 +32,8 @@ position:relative;
 }
 
 
-img.header{
-
-position:relative;
-left:20%;
-
-}
-
 #menu {
-	width: 610px;
+	width: 620px;
 	margin: 0 auto;
 	background-color: #000066;
 	text-align:center;
@@ -53,28 +43,65 @@ left:20%;
 }
 
 
-A:link {
+.headerLink A:link {
 text-decoration:none;
 color:#949BFF;
 font-size:23px;
 margin: 0 21px;
 }
 
-A:active {
+.headerLink A:active {
 margin:21px;
 font-size:23px;
 text-decoration: underline; color: white;
 }
 
-A:visited {
+.headerLink A:visited {
 margin:21px;
 font-size:23px;
 text-decoration: underline; color:#949BFF;
 }
 
-A:hover {
+.headerLink A:hover {
 margin:22px;
 font-size:23px;
 text-decoration: underline; color: lightblue;
 }
 
+.container{
+	width:600px;
+	text-align:center;
+	margin:0 auto;
+}
+
+#artistList{
+	float:left;
+}
+#genreList{
+	float:left;
+}
+#ageList{
+	float:left;
+}
+#venueList{
+	float:left;
+}
+#locationList{
+	float:left;
+}
+
+#artistForm{
+	float:right;
+}
+#genreForm{
+	float:right;
+}
+#ageForm{
+	float:right;
+}
+#venueForm{
+	float:right;
+}
+#locationForm{
+	float:right;
+}

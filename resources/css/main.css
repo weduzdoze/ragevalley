@@ -1,5 +1,5 @@
 body {
-background-image:url('headerPhoto.png');
+background-image:url('../images/headerPhoto.png');
 background-color: #949BFF;
 background-repeat:no-repeat;
 background-attachment:not-fixed;
@@ -67,4 +67,8 @@ margin:21px;
 text-decoration: underline; color: lightblue;
 }
 
-
+.container{
+	width:800px;
+	margin: 0 auto;
+	text-align:center;
+}

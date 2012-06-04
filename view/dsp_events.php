@@ -37,7 +37,7 @@
 					<option name="none" value="0">--Select--</option>
 					<?php 
 						foreach ($artists as $artist){ ?>
-							<option <?php if ($artist->getID() === $_POST['artist']){echo "selected";} ?>name='artist' value='<?php echo $artist->getID() ?>'> <?php echo $artist->getName() ?></option>
+							<option <?php if ($artist->getID() === $_POST['artist']){echo "selected";} ?> name='artist' value='<?php echo $artist->getID() ?>'> <?php echo $artist->getName() ?></option>
 						<?php } 																
 					?>				
 				</select>
