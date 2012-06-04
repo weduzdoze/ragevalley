@@ -9,7 +9,7 @@
 <script type="text/javascript" src="../resources/js/jquery-ui.min.js"></script>
 <?php 
 	if(isset($_SESSION['isLoggedIn'])){
-		echo 'Welcome ' . $_SESSION['firstName'] . '!';
+		echo '<center>Welcome ' . $_SESSION['firstName'] . '! </center>';
 	}
 ?>
 
