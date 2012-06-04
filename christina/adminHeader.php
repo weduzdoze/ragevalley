@@ -5,26 +5,31 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="admin.css"/>
 </head>
-
 <body>
 
 
-	<div id="header">
+	<div id="headerPhoto">
 	
 	<img src="adminPhoto.png" align="center" class="header"/>
-	<br>
-
-	<a href="">Log In</a>
-	<a href="">Events</a>
-	<a href="">Manage</a>
-	<a href="">Accounts</a>
-	<br><br>
-
+	<br><br> 
 	</div>
 	
+	<div id="menu">
+		<a href="">Log In</a>
+		<a href="">Events</a>
+		<a href="">Manage</a>
+		<a href="">Accounts</a>
+	</div>
+	<br><br>
+	
+	
+
+
+	
+	<div id="content">
 	sdfsdsdfsdfsdff
 	
-	
+	</div>
 </body>
 
 
