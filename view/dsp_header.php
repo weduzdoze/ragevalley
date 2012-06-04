@@ -13,7 +13,7 @@
 	<div class="menu">
 	<a href="index.php?action=home" class="headerLink">Home</a>
 	<a href="index.php?action=events" class="headerLink">Events</a>
-	<a href="" class="headerLink">About Us</a>
+	<a href="index.php?action=aboutUs" class="headerLink">About Us</a>
 	<a href="index.php?action=contactUs" class="headerLink">Contact Us</a>
 	</div>
 </div>

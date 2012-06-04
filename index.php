@@ -78,4 +78,10 @@ else if ($action == 'contactUs'){
 	include('view/dsp_contactUs.php');
 	include('view/dsp_footer.php');	
 }
+
+else if ($action == 'aboutUs'){
+	include('view/dsp_header.php');
+	include('view/dsp_aboutUs.php');
+	include('view/dsp_footer.php');		
+}
 ?>

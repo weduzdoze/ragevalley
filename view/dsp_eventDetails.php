@@ -8,7 +8,7 @@
 <?php 
 	$imageFileNameLength = strlen($event->getImageFileName());
 	if ($imageFileNameLength > 1){
-		echo "<img src='images/events/" . $event->getImageFileName() . "' class='imagee'>";
+		echo "<img src='images/events/" . $event->getImageFileName() . "' class='image'>";
 		echo "<br />";
 	}
 ?>
