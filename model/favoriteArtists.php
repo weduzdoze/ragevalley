@@ -6,7 +6,7 @@
   google.load("jqueryui", "1.7.2");
 </script>
 
-<div id="favoriteArtists">
+<div id="favoriteArtists" style="border:1px solid black;">
 <h2>My Favorite Artists</h2>
 <!--- create empty div for favorite artists table
       the table gets loaded through jquery ajax --->

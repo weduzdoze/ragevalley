@@ -11,6 +11,7 @@ This site provides you with upcoming shows and festivals in your area.<br/>
 Click the Events link in the navigation bar above to get started.<br/><br/><br/>
 
 <?php include('model/favoriteArtists.php'); ?>
+<br />
 
 
 <i>If you would like to purchase any tickets to the events found on this site, <br/>
