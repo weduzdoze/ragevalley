@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+//function for loading the manage navigation bar
 function loadManage(){
 	$locations = Location::getLocations();
 	$artists = Artist::getArtists();
@@ -13,7 +13,7 @@ function loadManage(){
 	include('view/dsp_manage.php');
 	include('view/dsp_footer.php');
 }
-
+//require all classes
 require('../model/database.php');
 require('../model/userDB.php');
 require('../model/user.php');
@@ -37,13 +37,13 @@ if (isset($_POST['action'])) {
 } else {
     $action = 'login';
 }
-
+//display login page
 if ($action == 'login') {
 	include('view/dsp_header.php');
 	include('view/user/dsp_login.php');
 	include('view/dsp_footer.php');
 }
-
+//logout function. end session, display login page
 else if ($action == 'logout') {
 	session_unset();
 	session_destroy();
@@ -51,12 +51,25 @@ else if ($action == 'logout') {
 	include('view/user/dsp_login.php');
 	include('view/dsp_footer.php');
 }
-
+//process the login
 else if ($action == 'loginProcess'){
 	$username = $_POST['username']; 
 	$password = $_POST['password']; 
-	$user = userDB::login($username,$password);
-	header('Location: index.php?action=events');	
+
+	try {
+		$user = userDB::login($username,$password);
+	} catch (Exception $e){
+		$error = $e->getMessage();
+	}
+	if (isset($user)){
+		header('Location: index.php?action=events');
+	}
+	else{
+		include('view/dsp_header.php');
+		include('view/user/dsp_login.php');
+		include('view/dsp_footer.php');
+	}	
+	
 }
 	
 else if ($action == 'addUser'){
@@ -137,35 +150,49 @@ else if ($action == 'saveEvent') {
 	$artist = $_POST['artist'];
 	$venue = $_POST['venue'];
 	$genre = $_POST['genre'];
-	
-	$startDate = explode("/",substr($_POST['start'],0,7));
-	$startDate = $startDate[2] . "-" . $startDate[0] . "-" . $startDate[1];	
-	$startTime = substr($_POST['start'],8,strlen($_POST['start']));
-	$start = $startDate . " " . $startTime;
-	
-	$endDate = explode("/",substr($_POST['end'],0,7));
-	$endDate = $endDate[2] . "-" . $endDate[0] . "-" . $endDate[1];	
-	$endTime = substr($_POST['end'],8,strlen($_POST['end']));
-	$end = $endDate . " " . $endTime;
-	
-	
-	
+	$start = $_POST['start'];
+	$end = $_POST['end'];	
 	$price = $_POST['price'];
 	$age = $_POST['age'];
 	$imageFileName = $_POST['imageFileName'];
 	$facebook = $_POST['facebook'];
 	$details = $_POST['details'];
-
-	$event = eventDB::addEvent($name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details);
-	if ($event == 1){
-		echo 'Event added!';
+	
+	//example of server side validation
+	if (preg_match('^(?:[1-9]\d+|\d)(?:\.\d\d)?$^', $price)) {
+		//strip dollar sign before database insert
+		$price = preg_replace('/[\$,]/', '', $price);
+		//try to add the event
+		try{
+			$event = eventDB::addEvent($name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details);
+		//if there is an error, display the message, and reload the add_event page
+		} catch (Exception $e){
+			$error = $e->getMessage();
+			include('view/dsp_header.php');
+			include('view/event/dsp_addEvent.php');
+			include('view/dsp_footer.php');
+		}
+		//if the event added successfully, then event will be defined
+		//display the confirmation message (supplied as error to display in the universal message placeholder)
+		if (isset($event)){
+			$error = 'Event added!';
+			$events = EventDB::getEvents('name','DESC'); 
+			include('view/dsp_header.php');
+			include('view/event/dsp_events.php');
+			include('view/dsp_footer.php');			
+		}
+		//if the price value does not pass the regular expression validation
+		//display an error message, and redisplay the add event form
+	} else {
+		$error = "Error with the price value: " . $price;
+		$artists = Artist::getArtists();
+		$venues = Venue::getVenues();
+		$genres = Genre::getGenres();
+		$ages = Age::getAges();
 		include('view/dsp_header.php');
-		include('view/event/dsp_events.php');
+		include('view/event/dsp_addEvent.php');
 		include('view/dsp_footer.php');
-	}
-	else {
-		echo 'Error!';
-	}
+	}	
 }
 
 else if ($action == 'editEvent'){

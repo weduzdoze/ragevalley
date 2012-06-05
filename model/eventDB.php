@@ -31,8 +31,7 @@ class eventDB {
 		}
 		else{
 			return $row_count;
-		}
-		
+		}		
 	}
 	public static function updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details){
 		$db = Database::getDB();
@@ -104,10 +103,12 @@ class eventDB {
 	
 	public static function getEventsBySearch($search,$genre,$artist,$location,$age){
 		$db = Database::getDB();
-        $query = "SELECT e.*,v.venueID FROM events e
+        //join the relevant tables
+		$query = "SELECT e.*,v.venueID FROM events e
 				  LEFT JOIN venues v ON e.venueID = v.venueID
 				  LEFT JOIN locations l ON v.locationID = l.locationID"; 
-		         if (strlen($search) > 0){ $query .= " WHERE e.name LIKE '%$search%'"; } 
+		         //append where clauses to the search query if the user supplies a search parameter for that column
+				 if (strlen($search) > 0){ $query .= " WHERE e.name LIKE '%$search%'"; } 
 				 if ($genre != 0){ $query .= "AND genreID = '$genre'";}
 				 if ($artist != 0){ $query .= "AND artistID = '$artist'";}
 				 if ($location != 0){ $query .= "AND l.locationID = '$location'";}

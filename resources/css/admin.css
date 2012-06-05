@@ -147,3 +147,15 @@ text-decoration: underline; color: lightblue;
 #locationForm{
 	float:right;
 }
+
+#error{
+	color:red;
+}
+#addEventForm{
+	width:300px;
+	margin: 0 auto;
+}
+#loginPage{
+	width:250px;
+	margin: 0 auto;
+}

@@ -12,7 +12,10 @@
 		echo '<center>Welcome ' . $_SESSION['firstName'] . '! </center>';
 	}
 	if (isset($error) && strlen($error) > 0){
-		echo "<br /><center>" . $error . "</center>";
+		if(isset($_SESSION['isLoggedIn'])){
+			echo "<br />";
+		} 
+		echo "<center><span id='error'>" . $error . "</span></center>";
 	}
 ?>
 

@@ -2,7 +2,7 @@
 	<title></title>
 	<h2>Login</h2>
 </head>
-
+<div id="loginPage">
 <form name="loginForm" method="post" action=".">
 <input type="hidden" name="action" value="loginProcess" />
 <table>
@@ -17,3 +17,4 @@
 </table>
 <input type="submit" name="submitForm" value="Login">
 </form>
+</div>

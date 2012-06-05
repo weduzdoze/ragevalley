@@ -22,7 +22,7 @@ class userDB {
 		return $user;
       }
 	  else{
-		echo 'No user found.';
+		throw new Exception("No user found.");
 	  }
 	} 
 	
