@@ -26,13 +26,15 @@
 	<div class="menu">
 	<?php
 	if(isset($_SESSION['isLoggedIn'])){
-	echo "<a class='headerLink' href='index.php?action=events'>Events</a>";
-	echo "<a class='headerLink' href='index.php?action=logout'>Logout</a>";
+	echo "<a class='headerLink' href='index.php?action=events'>Events</a>";	
 	echo "<a class='headerLink' href='index.php?action=users'>Accounts</a>";
+	echo "<a class='headerLink' href='index.php?action=logout'>Logout</a>";
+	echo "<a class='headerLink' href='../index.php'>Main Site</a>";
 	}
 	else{
 	echo "<a class='headerLink' href='index.php?action=login'>Login</a>";
 	echo "<a class='headerLink' href='index.php?action=addUser'>Register</a>";
+	echo "<a class='headerLink' href='../index.php'>Main Site</a>";
 	}
 	?>
 	

@@ -15,6 +15,7 @@
 	<a href="index.php?action=events" class="headerLink">Events</a>
 	<a href="index.php?action=aboutUs" class="headerLink">About Us</a>
 	<a href="index.php?action=contactUs" class="headerLink">Contact Us</a>
+	<a href="admin/index.php" class="headerLink">Admin</a>
 	</div>
 </div>
 
