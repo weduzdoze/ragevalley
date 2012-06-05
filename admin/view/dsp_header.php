@@ -11,6 +11,9 @@
 	if(isset($_SESSION['isLoggedIn'])){
 		echo '<center>Welcome ' . $_SESSION['firstName'] . '! </center>';
 	}
+	if (isset($error) && strlen($error) > 0){
+		echo "<br /><center>" . $error . "</center>";
+	}
 ?>
 
 </head>

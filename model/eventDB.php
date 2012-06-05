@@ -24,9 +24,15 @@ class eventDB {
 						  '$age',
 						  '$imageFileName',
 						  '$facebook',
-						  '$details')";
-        $row_count = $db->exec($query);
-		return $row_count;
+						  '$details')";        
+		$row_count = $db->exec($query);
+		if (!$row_count){
+			throw new Exception("Error adding event.");
+		}
+		else{
+			return $row_count;
+		}
+		
 	}
 	public static function updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details){
 		$db = Database::getDB();
