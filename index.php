@@ -1,7 +1,7 @@
 <?php
-
+//start the session
 session_start();
-
+//load class definitions
 require('model/database.php');
 require('model/userDB.php');
 require('model/user.php');
@@ -17,7 +17,7 @@ require('model/ageDB.php');
 require('model/age.php');
 require('model/location.php');
 require('model/locationDB.php');
-
+//find the action, and set it to $action
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
 } else if (isset($_GET['action'])) {
@@ -27,7 +27,7 @@ if (isset($_POST['action'])) {
 }
 
 //begin controller actions
-
+//prepare data in model, include the view
 if ($action == 'home'){
 	$artists = Artist::getArtists();
 	include('view/dsp_header.php');
@@ -44,14 +44,14 @@ else if ($action == 'events'){
 	include('view/dsp_events.php');
 	include('view/dsp_footer.php');	
 }
-
+//assign search parameters to variables
 else if ($action == 'eventSearch'){
 	$search = $_POST['search'];
 	$genre = $_POST['genre'];
 	$artist = $_POST['artist'];
 	$location = $_POST['location'];
 	$age = $_POST['age'];
-	
+	//call the getEventsBySearch method of the EventDB class
 	$events = EventDB::getEventsBySearch($search,$genre,$artist,$location,$age);
 	$genres = Genre::getGenres();
 	$artists = Artist::getArtists();

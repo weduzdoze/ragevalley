@@ -30,7 +30,9 @@
 	}
 	//if the down1 query string exists, switch elements 0 and 1
 	if(isset($_GET['down1'])){
+		//if there is more than 1 item in the array
 		if (count($_SESSION['favs']) > 1){
+			//switch the elements
 			$first = $_SESSION['favs'][0];
 			$second = $_SESSION['favs'][1];
 			$_SESSION['favs'][1] = $first;
@@ -39,7 +41,9 @@
 	}	
 	//if the down2 query string exists, switch elements 1 and 2
 	if(isset($_GET['down2'])){
+		//if there are more than 2 items in the array
 		if (count($_SESSION['favs']) > 2){			
+			//switch the elements
 			$second = $_SESSION['favs'][1];
 			$third = $_SESSION['favs'][2];
 			$_SESSION['favs'][1] = $third;
