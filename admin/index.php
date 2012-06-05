@@ -87,30 +87,36 @@ else if ($action == 'loginProcess'){
 }
 	
 else if ($action == 'addUser'){
+	//display the registration view files
 	include('view/dsp_header.php');
 	include('view/user/dsp_register.php');
 	include('view/dsp_footer.php');
 }	
 
 else if ($action == 'saveUser'){
+	//assign the user entered data to variables
+	//client side validation will ensure that this data is ready to be inserted into the databse
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$confirm = $_POST['confirmPass'];
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
-	
+	//try to create a new user by calling the addUser method of the userDB class
 	try {
 		$user = userDB::addUser($username,$password,$firstname,$lastname,$email);
 	} catch (Exception $e){
+		//if an exception is throw, set the message to the $error variable for universal messages
 		$error = $e->getMessage();
 	}
-	
+	//$user will be set if the user was successfully added
 	if (isset($user)){
+		//login the user with the new account just created
 		$user = userDB::login($username,$password);
+		//redirect to the events (home) page
 		header('Location: index.php?action=events');		
 	}
 	else{
+		//if the user was not added, redisplay the register form (and error message)
 		include('view/dsp_header.php');
 		include('view/user/dsp_register.php');
 		include('view/dsp_footer.php');	
@@ -118,13 +124,19 @@ else if ($action == 'saveUser'){
 }
 
 else if ($action == 'deleteRow'){
+	//table name and primary key are passed in as url variables
 	$table = $_GET['table'];
 	$id = $_GET['id'];
+	//include the getVars.php page which finds the name of the column containing the primary key based on the table
 	include('../model/getVars.php');
+	//loop through the $table associative array to find the name of the column for the given table
 	foreach($tables as $key=>$value) 
     { 
 		if ($key == $table)
-			$delete = Database::delete($table,$value,$id); 
+			//call the delete method of the Database class, passing in the table name, column name, and primary key of 
+			//the row to be deleted
+			Database::delete($table,$value,$id); 
+			//relocate to the previous page (actions and table names are the same)
 			header('Location: index.php?action='. $table);
     }
 }
