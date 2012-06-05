@@ -32,15 +32,21 @@
 	  which executes specific php array functions based on the action supplied through the ajax request--->
 <script type="text/javascript">
 	$(document).ready(function() {
+		/* on page load, ajax the dsp_favoritesTable.php page to load the table */
 		$('#favoritesTable').load('view/dsp_favoritesTable.php');
+		/* when the add artist button is clicked: */
 		$('#addArtist').click(function() {		
 			$.ajax({
 			  method: "post",
 			  url: 'view/dsp_favoritesTable.php',
+			  /* send the value of the artist dropdown menu to the dsp_favoritesTable.php page */
 			  data: 'artist='+$('#artist').val(),
 			  datatype: "html",
+			  /* ajax callback success function */
 			  success: function(data) {
+				/* empty the div containing the old table */
 				$('#favoritesTable').empty();
+				/* reload the div with the ajax response (the updated table) */
 				$('#favoritesTable').html(data);
 			  }
 			});
@@ -49,26 +55,17 @@
 			$.ajax({
 			  method: "post",
 			  url: 'view/dsp_favoritesTable.php',
+			  /* send the action remove to the dsp_favoritesTable.php page */
 			  data: { remove : 'remove'},
 			  datatype: "html",
+			  /* ajax callback success function */
 			  success: function(data) {
+				/* empty the div containing the old table */
 				$('#favoritesTable').empty();
+				/* reload the div with the ajax response (the updated table) */
 				$('#favoritesTable').html(data);
 			  }
 			});
-		})
-		$('#down1').click(function() {		
-			alert('hello');
-			$.ajax({
-			  method: "post",
-			  url: 'view/dsp_favoritesTable.php',
-			  data: { down1 : 'down1'},
-			  datatype: "html",
-			  success: function(data) {
-				$('#favoritesTable').empty();
-				$('#favoritesTable').html(data);
-			  }
-			});
-		})		
+		});	
 	});
 </script>
