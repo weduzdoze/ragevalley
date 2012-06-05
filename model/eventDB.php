@@ -123,7 +123,8 @@ class eventDB {
 				 if ($genre != 0){ $query .= "AND genreID = '$genre'";}
 				 if ($artist != 0){ $query .= "AND artistID = '$artist'";}
 				 if ($location != 0){ $query .= "AND l.locationID = '$location'";}
-				 if ($age != 0){ $query .= "AND ageID = '$age'";} 		  
+				 if ($age != 0){ $query .= "AND ageID = '$age'";} 	
+				 $query .= " ORDER BY e.startDateTime DESC";
 		$result = $db->query($query);
 		//create an empty array to store event objects for all events returned in the search
 		$events = array();

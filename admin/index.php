@@ -123,7 +123,7 @@ else if ($action == 'saveUser'){
 	}
 }
 if(!isset($_SESSION['isLoggedIn'])){
-	if($action != 'login' && $action != 'loginProcess' && $action != 'logout' && $action != 'addUser' && $action != 'saveUser'){
+	if ($action != 'login' && $action != 'loginProcess' && $action != 'logout' && $action != 'addUser' && $action != 'saveUser'){
 		header('Location: index.php?action=login');
 	}
 }
