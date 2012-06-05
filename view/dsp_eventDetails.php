@@ -1,7 +1,7 @@
 <div id="eventDetails">
 
-<div id="eventDetailsEventName"><?php echo $event->getName();?>!</div><br>
-<div id="eventDetailsFeaturing"><i>Featuring:</i></div><br>
+<div id="eventDetailsEventName"><?php echo $event->getName();?>!</div><br/>
+<div id="eventDetailsFeaturing"><i>Featuring:</i></div><br/>
 <div id="eventDetailsArtistName"><?php echo $event->artist->getName();?></div>
 <br />
 <div id="eventDetailsImage">
@@ -14,7 +14,7 @@
 ?>
 </div>
 
-<div id="eventDetailsArtist">
+<div id="eventDetailsArtist"><br/>
 		<span id="eventName"><b>Name: </b><?php echo $event->getName();?></span><br />
 		<span id="eventArtist"><b>Artist: </b><?php echo $event->artist->getName();?></span><br />	
 		<span id="eventStart"><b>Start: </b><?php echo $event->getStart();?></span><br />
@@ -32,4 +32,7 @@
 		
 </div>
 
-</div>
+
+
+<br/><br/><br/><br/>
+<div>
