@@ -167,3 +167,7 @@ border: 5px double #4E387E;
 #searchVenue{
 	color:black;
 }
+#favoriteArtists{
+	width:200px;
+	margin:0 auto;
+}

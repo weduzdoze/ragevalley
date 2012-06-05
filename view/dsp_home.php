@@ -8,9 +8,9 @@
 Trying to find a show to rage at? </b><br/>
 You've come to the right place.<br/>
 This site provides you with upcoming shows and festivals in your area.<br/>
-Click the Events link in the navigation bar above to get started.<br/><br/><br/><br/><br/>
+Click the Events link in the navigation bar above to get started.<br/><br/><br/>
 
-
+<?php include('model/favoriteArtists.php'); ?>
 
 
 <i>If you would like to purchase any tickets to the events found on this site, <br/>

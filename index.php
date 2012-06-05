@@ -29,6 +29,7 @@ if (isset($_POST['action'])) {
 //begin controller actions
 
 if ($action == 'home'){
+	$artists = Artist::getArtists();
 	include('view/dsp_header.php');
 	include('view/dsp_home.php');
 	include('view/dsp_footer.php');
