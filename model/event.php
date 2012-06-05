@@ -1,15 +1,20 @@
 <?php 
 
 class Event{
+	   //constructor for event object
 	   public function __construct($id,$name,$artistID,$venueID,$genreID,$start,$end,$price,$ageID,$imageFileName,$facebook,$details) {		
 		$this->id = $id;
 		$this->name = $name;		
+		//the artist property is an artist object
 		$this->artist = ArtistDB::getArtistByID($artistID);
-        $this->venue = VenueDB::getVenueByID($venueID);
-        $this->genre = GenreDB::getGenreByID($genreID);
+        //the venue property is a venue object
+		$this->venue = VenueDB::getVenueByID($venueID);
+        //the genre property is a genre object
+		$this->genre = GenreDB::getGenreByID($genreID);
 		$this->start = $start;
 		$this->end = $end;
 		$this->price = $price;
+		//the age property is an age object
 		$this->age = AgeDB::getAgeByID($ageID);
 		$this->imageFileName = $imageFileName;
 		$this->facebook = $facebook;

@@ -16,6 +16,8 @@
 
 <div id="eventDetailsArtist"><br/>
 		<span id="eventName"><b>Name: </b><?php echo $event->getName();?></span><br />
+		<!--- to get the name of the artist, we need to call the getName function of the artist object
+			  that is the artist property of the event object--->
 		<span id="eventArtist"><b>Artist: </b><?php echo $event->artist->getName();?></span><br />	
 		<span id="eventStart"><b>Start: </b><?php echo $event->getStart();?></span><br />
 		<span id="eventEnd"><b>End: </b><?php echo $event->getEnd();?></span><br />

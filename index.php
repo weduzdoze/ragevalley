@@ -64,10 +64,15 @@ else if ($action == 'eventSearch'){
 
 else if ($action == 'eventDetails'){
 	include('view/dsp_header.php');
+	//event details page requires the eventID passed in as a url variable
+	//if the url variable eid exists
 	if(isset($_GET['eid'])){
+		//create a new event object for the event containing the given eventID
 		$event = eventDB::getEventByID($_GET['eid']);
+		//include the event details page, which loads the information about the specific event
 		include('view/dsp_eventDetails.php');
 	}
+	//if no eventID is given, just load the events page
 	else {
 		include('view/dsp_events.php');
 	}	
