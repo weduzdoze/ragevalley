@@ -151,17 +151,22 @@ else if ($action == 'events'){
 
 else if ($action == 'eventDetails'){
 	include('view/dsp_header.php');
+	//if an eventID is supplied as a url variable
 	if (isset($_GET['eid'])){
+		//make a new event object with the getEventByID method of the eventDB class
 		$event = EventDB::getEventByID($_GET['eid']);
 		include('view/event/dsp_eventDetails.php');
 	}
+	//if no eventID exists
 	else {
+		//display the events page instead
 		include('view/event/dsp_events.php');
 	}
 	include('view/dsp_footer.php');
 }
 
 else if ($action == 'addEvent'){
+	//prepare data, and load relevant view pages
 	$artists = Artist::getArtists();
     $venues = Venue::getVenues();
 	$genres = Genre::getGenres();
@@ -172,6 +177,7 @@ else if ($action == 'addEvent'){
 }
 
 else if ($action == 'saveEvent') {
+	//save user inputted event data into variables
 	$name = $_POST['name'];
 	$artist = $_POST['artist'];
 	$venue = $_POST['venue'];
@@ -185,6 +191,7 @@ else if ($action == 'saveEvent') {
 	$details = $_POST['details'];
 	
 	//example of server side validation
+	//if price passes regex validation
 	if (preg_match('^(?:[1-9]\d+|\d)(?:\.\d\d)?$^', $price)) {
 		//strip dollar sign before database insert
 		$price = preg_replace('/[\$,]/', '', $price);
@@ -209,12 +216,17 @@ else if ($action == 'saveEvent') {
 		}
 		//if the price value does not pass the regular expression validation
 		//display an error message, and redisplay the add event form
-	} else {
+	} 
+	//if price does NOT pass regex price validation
+	else {
+		//set $error to price error message
 		$error = "Error with the price value: " . $price;
+		//prepare dropdown data
 		$artists = Artist::getArtists();
 		$venues = Venue::getVenues();
 		$genres = Genre::getGenres();
 		$ages = Age::getAges();
+		//reload add event page
 		include('view/dsp_header.php');
 		include('view/event/dsp_addEvent.php');
 		include('view/dsp_footer.php');
@@ -222,22 +234,28 @@ else if ($action == 'saveEvent') {
 }
 
 else if ($action == 'editEvent'){
+	//prepare dropdown values
 	$artists = Artist::getArtists();
     $venues = Venue::getVenues();
 	$genres = Genre::getGenres();
 	$ages = Age::getAges();
     include('view/dsp_header.php');
+	//if an eventID is supplied
 	if (isset($_GET['eid'])){
+		//make a new event object with the getEventByID method of the eventDB class
 		$event = EventDB::getEventByID($_GET['eid']);
 		include('view/event/dsp_editEvent.php');
 	}
+	//if no eventID supplied
 	else {
+		//display the events page
 		include('view/event/dsp_events.php');
 	}
 	include('view/dsp_footer.php');
 }
 
 else if ($action == 'updateEvent'){
+	//assign event data to variables
 	$id = $_POST['eventID'];
 	$name = $_POST['name'];
 	$artist = $_POST['artist'];
@@ -250,15 +268,22 @@ else if ($action == 'updateEvent'){
 	$imageFileName = $_POST['imageFileName'];
 	$facebook = $_POST['facebook'];
 	$details = $_POST['details'];
-
+	//call the updateEvent method of the eventDB class to update the event
 	$event = eventDB::updateEvent($id,$name,$artist,$venue,$genre,$start,$end,$price,$age,$imageFileName,$facebook,$details);	
+	//if event added successfully
 	if ($event == 1){
+		//redirect to event details
 		header('Location: index.php?action=eventDetails&eid=' . $id);
 	}
 	else {
+		//display an error
 		echo 'Error.';
 	}
 }
+
+//the model,view,and controller for genre,age,venue,and artist are all very similiar.
+//each contain an update page, listing page, and an adding page
+//all of the operations expressed in the following actions have been documented in the above comments
 
 else if ($action == 'genres'){
 	$genres = Genre::getGenres();
