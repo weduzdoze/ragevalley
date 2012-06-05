@@ -10,7 +10,7 @@
 		<title></title>
 		<h2>Register</h2>
 	</head>
-
+<div id="registerContainer" style="width:300px;margin:0 auto">
 <form name="registerForm" method="post" action="." id="registerForm">
 <input type="hidden" name="action" value="saveUser">
 <table>
@@ -41,7 +41,7 @@
 </table>
 <input type="submit" name="submitRegister" id="submitRegister"value="Register">
 </form>
-
+</div>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#submitRegister').click(function(e) {

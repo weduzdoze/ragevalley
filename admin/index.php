@@ -30,14 +30,14 @@ if (isset($_POST['action'])) {
 // make sure the page uses a secure connection
 //as long as action does NOT EQUAL login, loginProcess, and logout
 //initialize a secure connection
-if ($action != 'login' && $action != 'loginProcess' && $action != 'logout'){
-	if (!isset($_SERVER['HTTPS'])) {
+if ($action != 'login' && $action != 'loginProcess' && $action != 'logout' && $action != 'addUser' && $action != 'saveUser'){
+	if (!isset($_SERVER['HTTPS']) && isset($_SESSION['isLoggedIn'])) {
 		$url = 'https://' . 
 			   $_SERVER['HTTP_HOST'] . 
 			   $_SERVER['REQUEST_URI'];
 		header("Location: " . $url);
 		exit();
-	}
+	}	
 } 
 //display login page
 if ($action == 'login') {
@@ -122,7 +122,11 @@ else if ($action == 'saveUser'){
 		include('view/dsp_footer.php');	
 	}
 }
-
+if(!isset($_SESSION['isLoggedIn'])){
+	if($action != 'login' && $action != 'loginProcess' && $action != 'logout' && $action != 'addUser' && $action != 'saveUser'){
+		header('Location: index.php?action=login');
+	}
+}
 else if ($action == 'deleteRow'){
 	//table name and primary key are passed in as url variables
 	$table = $_GET['table'];
