@@ -31,7 +31,13 @@ class userDB {
         $query = "INSERT INTO users (username,password,firstName,lastName,email)
 				  VALUES ('$username','$password','$firstname','$lastname','$email')";
         $user = $db->exec($query);
-		return $user;
+		
+		if (!$user){
+			throw new Exception("Error adding user.");
+		}
+		else {
+			return true;
+		}	
 	}
 }
 ?>	

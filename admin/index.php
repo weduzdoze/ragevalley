@@ -73,18 +73,20 @@ else if ($action == 'saveUser'){
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
 	
-	$user = userDB::addUser($username,$password,$firstname,$lastname,$email);
-	if ($user == 1){
-		echo 'User added!';
-		if(isset($_SESSION['isLoggedIn'])){
-			header('Location: index.php?action=accounts');
-		}
-		else {
-			header('Location: index.php?action=login');
-		}
+	try {
+		$user = userDB::addUser($username,$password,$firstname,$lastname,$email);
+	} catch (Exception $e){
+		$error = $e->getMessage();
 	}
-	else {
-		echo 'Error!';
+	
+	if (isset($user)){
+		$user = userDB::login($username,$password);
+		header('Location: index.php?action=events');		
+	}
+	else{
+		include('view/dsp_header.php');
+		include('view/user/dsp_register.php');
+		include('view/dsp_footer.php');	
 	}
 }
 
