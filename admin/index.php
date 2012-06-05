@@ -1,18 +1,7 @@
 <?php
-
+//start session
 session_start();
-//function for loading the manage navigation bar
-function loadManage(){
-	$locations = Location::getLocations();
-	$artists = Artist::getArtists();
-    $venues = Venue::getVenues();
-	$genres = Genre::getGenres();
-	$ages = Age::getAges();
-	include('view/dsp_header.php');
-	include('view/dsp_manageNav.php');
-	include('view/dsp_manage.php');
-	include('view/dsp_footer.php');
-}
+
 //require all classes
 require('../model/database.php');
 require('../model/userDB.php');
@@ -37,16 +26,36 @@ if (isset($_POST['action'])) {
 } else {
     $action = 'login';
 }
+
+// make sure the page uses a secure connection
+//as long as action does NOT EQUAL login, loginProcess, and logout
+//initialize a secure connection
+if ($action != 'login' && $action != 'loginProcess' && $action != 'logout'){
+	if (!isset($_SERVER['HTTPS'])) {
+		$url = 'https://' . 
+			   $_SERVER['HTTP_HOST'] . 
+			   $_SERVER['REQUEST_URI'];
+		header("Location: " . $url);
+		exit();
+	}
+} 
 //display login page
 if ($action == 'login') {
 	include('view/dsp_header.php');
 	include('view/user/dsp_login.php');
 	include('view/dsp_footer.php');
 }
-//logout function. end session, display login page
+//logout function. end session, display login page, close secure connection
 else if ($action == 'logout') {
 	session_unset();
 	session_destroy();
+	if (isset($_SERVER['HTTPS'])) {
+		$url = 'http://' . 
+			   $_SERVER['HTTP_HOST'] . 
+			   $_SERVER['REQUEST_URI'];
+		header("Location: " . $url);
+		exit();
+	}
 	include('view/dsp_header.php');
 	include('view/user/dsp_login.php');
 	include('view/dsp_footer.php');
@@ -56,14 +65,19 @@ else if ($action == 'loginProcess'){
 	$username = $_POST['username']; 
 	$password = $_POST['password']; 
 
+	//try to login with the userDB login function
 	try {
 		$user = userDB::login($username,$password);
+		//catch any exceptions
 	} catch (Exception $e){
+		//set the exception error to the $error variable displayed in the universal message placeholder
 		$error = $e->getMessage();
 	}
+	//if user is set (login successfull), relocate to the events action
 	if (isset($user)){
 		header('Location: index.php?action=events');
 	}
+	//if the login failed, redirect to the login page
 	else{
 		include('view/dsp_header.php');
 		include('view/user/dsp_login.php');
@@ -232,11 +246,6 @@ else if ($action == 'updateEvent'){
 	else {
 		echo 'Error.';
 	}
-}
-
-else if ($action == 'manage'){
-	loadManage();
-	
 }
 
 else if ($action == 'genres'){
